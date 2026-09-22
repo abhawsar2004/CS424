@@ -6,7 +6,7 @@ Full assignment: [course webpage](https://fmiranda.me/courses/cs424-fall-2026/)
 
 ## Repo setup
 - [x] Add all group members as collaborators (mariamm4 joined, angelasgeo16 invited)
-- [ ] Add the instructor and TA as collaborators (the repo is private)
+- [x] Make the repo public (so the instructor and TA can see it without being added)
 - [ ] Everyone commits with their own GitHub account, a little at a time (the history is graded)
 
 ## Task 1: Observation and data collection plan
