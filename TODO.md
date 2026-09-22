@@ -5,7 +5,7 @@ Full assignment: [course webpage](https://fmiranda.me/courses/cs424-fall-2026/)
 **Due:** _TBD_
 
 ## Repo setup
-- [ ] Add all group members as collaborators (mariamm4 invited, still need Angela's username)
+- [x] Add all group members as collaborators (mariamm4 joined, angelasgeo16 invited)
 - [ ] Add the instructor and TA as collaborators (the repo is private)
 - [ ] Everyone commits with their own GitHub account, a little at a time (the history is graded)
 
