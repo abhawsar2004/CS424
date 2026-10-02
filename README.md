@@ -107,6 +107,24 @@ Our first plan had more things we wanted to look at, like phone use, interaction
 Writing these out changed how we think about our questions. At first they were pretty broad, just "what affects focus." Breaking them into actions and targets showed us that three of them are really about comparing distributions across categories, and only the sleep question is about how two numbers relate. That difference will affect how we sketch them. It also showed us that checking group sizes, missing answers, and what a 0 means are actual tasks, not just side notes. These abstractions are about what someone needs to learn from the data. How to draw them is something we'll figure out in the sketches.
 
 ## Task 5: Visualization sketches
+
+1. **The Estimation Gap —** Planned Duration vs. Time to First Distraction
+<img width="600" height="476" alt="image" src="https://github.com/user-attachments/assets/85e966e1-dd76-4e9d-b750-08285966d01e" />
+
+This sketch shows planned session duration against time to first distraction for five sessions, using a dumbbell design: a black dot for planned time, a colored dot for time to first distraction, and the connecting line's length showing the gap between them, colored by effectiveness rating (1–3 vs. 4–5).  We initially plotted planned vs. actual session length, but realized actual duration didn't clearly connect to attention. A session could end early for reasons unrelated to focus. We switched to time to first distraction instead, since it ties the gap directly to when attention breaks down, giving a more meaningful read on whether bigger gaps relate to lower effectiveness.
+
+2. **Distraction Timing by Environment —** Early vs. Middle, Across Noise and Social Context
+<img width="600" height="567" alt="image" src="https://github.com/user-attachments/assets/b61fa8b4-12d8-486a-a947-ee42893f5289" />
+
+This sketch shows, for four environment categories, what share of sessions had their first distraction occur early versus in the middle of the planned session. We originally planned to include "late" and "clustered" distraction patterns, but realized our form only captures a single first-distraction timestamp per session, not a full sequence so clustering isn't measurable. The stacked bars use color and proportion to compare timing patterns across quiet/noisy and alone/others conditions, revealing an unexpected pattern where quiet, solitary sessions had more early distractions than quiet sessions with others present.
+
+3. **The Difficulty Heatmap —** First Distraction Timing by Task Difficulty
+<img width="600" height="468" alt="image" src="https://github.com/user-attachments/assets/221c674e-49dc-4d75-820c-7daf1ee61c2d" />
+
+This sketch shows, for three difficulty levels (Low 1–3, Medium 4–8, High 9–10), how many sessions had their first distraction occur within each 10-minute window of the session, using a matrix layout: difficulty as rows, time bins as columns, and cell color intensity (marks: cells; channel: color/saturation) encoding the count of sessions. We initially tried a parallel-coordinates sketch linking five attributes at once (sleep, screen time, difficulty, time to distraction, focus), but it got cluttered and hard to read once more sessions were added. We also initially planned to encode total distraction counts across the session, but realized the form only records the time of the first distraction, not every distraction event so we switched to counting sessions by first-distraction timing instead, which still lets us see whether harder tasks tend to lose focus earlier than easier ones.
+
+
+
 ## Task 6: Summarizing
 ## Task 7: Collaboration process
 
