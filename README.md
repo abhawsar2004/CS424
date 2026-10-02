@@ -1,12 +1,12 @@
 # FocusTrace
 FocusTrace is a self-observed dataset built around everyday focus sessions — studying, working, reading, or any sustained-attention task. Participants record when the first distraction hits, how many distractions follow, and how that compares across task type, environment, sleep the night before, phone use earlier in the day, caffeine intake, and any focus strategy used during the session. Pairing a measurable attention proxy (time to first distraction) with these everyday factors lets us explore whether certain environments, strategies, or habits correlate with longer sustained focus.
 
-## Task 1
-## Task 2
-## Task 3
-## Task 4
-## Task 5
-## Task 6
+## Task 1: Observation and data collection plan
+## Task 2: Pilot and data collection
+## Task 3: Data description and domain questions
+## Task 4: Task abstractions
+## Task 5: Visualization sketches
+## Task 6: Summarizing
 ## Task 7: Collaboration process
 
 We worked as a team of three, communicating through a mix of quick in-person check-ins after class and ongoing online chats for day-to-day updates. Mariam created the Google Form, and all three of us shared it with our own friends and family to maximize responses, encouraging participants to log as many sessions as possible to build up a reasonably sized dataset.
