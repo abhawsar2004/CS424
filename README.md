@@ -2,7 +2,78 @@
 FocusTrace is a self-observed dataset built around everyday focus sessions — studying, working, reading, or any sustained-attention task. Participants record when the first distraction hits, how many distractions follow, and how that compares across task type, environment, sleep the night before, phone use earlier in the day, caffeine intake, and any focus strategy used during the session. Pairing a measurable attention proxy (time to first distraction) with these everyday factors lets us explore whether certain environments, strategies, or habits correlate with longer sustained focus.
 
 ## Task 1: Observation and data collection plan
+
+1)	What configures one observation
+One observation will consist of one completed study/work session recorded by one group member. Each row in our dataset will represent one session, including the task, duration focus, distractions, location and other factors for that session.
+
+2)	What attributes will you record for each observation?
+For each study/work session, we will record the date, start and end time of the, task type, task interest, task difficulty, self- rate focus, planned duration , time to first distraction, number of distractions, location, Environment- noise level, number of people, interaction level, sleep duration from previous night, phone screen time before the session, caffeine consumed before the session, and focus strategies used. 
+
+3)	Where and when will you record each observation
+We will collect the data using a Google Form. That form then will be distributed to participants outside of our group. Participants will complete the form after their study/work sessions and report information about the session, including the time, task, focus, distractions, locations and environmental conditions. Participants can complete the form wherever they normally study or work, such as their home, library, classroom or café. We plan to collect data through Friday 09/25/2026. 
+
+4)	How many locations, times, or days will you collect it?
+We plan to collect observations from multiple participants over several days, from September 22 through September 25, 2026. Since participants have different schedules and study habits, observations will be collected at different times a day and in different locations. Participants will be encouraged to record multiple study/work sessions, which will give us observations across different tasks, locations and environmental conditions. 
+
+
+5)	How will ensure that your data captures meaningful variation rather than a single snapshot?
+We will collect data from multiple participants and encourage each participants to record multiple sessions over several days. Because participants will study or work at their normal locations and times, we expect variations in task type, task interest, task difficulty, location, noise level, number of people present, interaction, sleep, phone screen time, caffeine intake and focus strategies. We will monitor the responses while collecting the data to determine whether there is enough variation to support meaningful comparisons. If we find that an attribute has little variation or does produce useful data, we may revise our collection strategy or remove or modify that attribute.
+6)	How will you decide on what to observe?
+We will focus on regular study and work sessions performed by the participants. A single observation will be one completed study/work session. Participants will record sessions involving activities such as studying, coding, reading, writing, or completing assignments. We chose these observations because they allow us to examine task characteristics, environmental conditions and other factors.
+
+7)	How will the collection be divided among members?
+Our group members will work together to design and distribute the Google Form, defining the attributes. The actual data observations will be collected from participants outside out group. Each member will help distribute Google From and recruit participants. We will work together to monitor the responses and check the collected data for missing or inconsistent values. We will communicate with each other if we need to clarify or need help on something.
+
+8)	What might your collection process fail to capture?
+Our collection may fail to capture minor distractions because participants might forget to record them. They might also intercept terms such as “distractions” and “noise level”, or “interactions” differently. Self-reported measures such as task interest, difficulty, and self-rate focus, sleep, may also be inaccurate since participants are estimating their own experiences. Additionally, participants may not record every study/work session, so the collected observations may not represent all their sessions. 
+
+9)	How might your collection process introduce bias?
+Our collection may introduce because participants may have different study habits, schedules, academic activities and preferred locations, which could affect the types of observations included in our dataset. There might be bias because participants are also recording their own focus, distractions, sleep, screen time and other information. 
+
+
+|Attribute|	Type| Description |	Example|
+|Date	|Temporal|Date of the study/work session|09/22/2026|
+|What time did the session start?(start_t)|Temporal|Time of the session started|9:00 am|
+|What time did the session end?(end_time)|Temporal|Time of the session ended|	11:00 am|
+|What type of task were you doing?(task_type)|Categorial|Type of task performed|Reading|
+|How interesting was the task?(task_interest)|Quantitative|How interesting was the task, rated 1-10|	7|
+|How difficult was the task?(task_difficulty)|Quantitative|How difficult was the task, rated 1-10|	8|
+|How long did you plan to work/study(planned_duration)|Quantitative|Number of minutes planned for the session|120
+|How many minutes until your first distraction?(time_ to_ first_distraction)|Quantitative|Minutes from session until first distraction|	30|
+|How many distractions occurred?(number_ of_ distractions)|Quantitative|Total number of distractions during the session|5|
+|How focused were you during the session?(self-rate_focus)|Quantitative|Overall focus during the session, rated 1-10|6|
+|Where did you study/work?(location)|Categorial|Location where the session occurred|	Library
+|How would you describe the noise level during this session?(noise_level)|Categorial|Perceived noise level during the session|Very Noisy|
+|How many other people were around you during this session?(people_present)|Categorial|Number of other people present|	3-5 people|
+|How much interaction did you have with others?(interaction_level)|Categorial|Amount of interaction with other people|None|
+|How many hours did you sleep the previous night?(sleep_hour)|Quantitative|Hours of sleep the previous night|7.5|
+|How much phone screen time you had accumulated that day?(phone_screen_time)|Quantitative|Phone screen time accumulated before the session|145 min|
+|What caffeine did you consume before the session?(caffeine)|Categorical|Caffeineconsumed before the session|Tea|
+|Which focus strategies did you use?(focus_strategies)|Categorial (multi-select)|Focus strategies used during the session|Timer, Headphone|
+
+
 ## Task 2: Pilot and data collection
+## Project Feedback & Responses
+* [Fill out the Feedback For](https://forms.gle/xCBtWwGwoUR8A6Lw8)
+* [View Public Response Sheet](https://docs.google.com/spreadsheets/d/1n-ynM2vjrijfOLAFeJ0SqMOiUnv9c6To3Dx9ByDkdFU/edit?usp=sharing)
+  
+We conducted a pilot collection of approximately 10 observations before continuing data collection the full set. The pilot showed that the general structure of the form was workable, but several attributes were not being recorded consistently. Participants entered planned duration, sleep, phone screen time and time to first distraction using different units and formats. Example planned duration was entered as both numbers and text such as “90min” and “3 hours”. We also found inconsistent task labels, such as “Meeting” and “Meetings”. One date was entered incorrectly, and some sessions had unusual start and end time that indicated that the form needed clearer instructions for sessions crossing midnight.
+
+Changes to be made:
+Based on this observation, we revised the collection procedure and data dictionary. We clarified that planned duration, time to first distraction, and phone screen time should be recorded in minutes, while sleep should be recorded in hours. We standardized the task categories and clarified the definitions of environmental variables. We also added clearer instructions for situations such as having no distractions and not knowing the exact amount of sleep or screen time. These changes should make the remaining observations more consistent and easier to analyze. 
+
+The form: Questions to modify
+How long did you plan to work/study? Enter the number of minutes. Example: 120
+How many minutes after starting the session did you experience your first distraction? Enter a whole number? If no distraction occurred enter 0: 
+How many hours did you sleep the previous night? Example: 7.5
+How many minutes of phone screen time had you accumulated before this session? Example: 145
+
+How much did you interact with other people during the session?
+•	None – no interaction
+•	Very little – brief interaction, such as saying hello or asking a quick question
+•	Some – several conversations/ interactions
+•	A lot – frequent or prolonged interaction
+
 ## Task 3: Data description and domain questions
 
 Our data comes from study and work sessions that people logged in our Google Form after they finished. One row is one session. For each session we have the start and end time, what kind of task it was, how long they planned to work, how many minutes until they first got distracted, how many distractions they had, a focus rating (1–10), where they were, how noisy it was, how many people were around, how much they slept, their phone screen time, caffeine, focus strategies, and how effective the session felt overall (1–5).
@@ -44,7 +115,4 @@ What worked well was that everyone stayed accountable and responsive to their pa
 
 Because we iterated on the dataset's attributes together before collection began, we caught gaps and redundant fields early, which meant less rework later when a cleaner, more consistent set of fields fed directly into our questions and sketches. On the visualization side, having each member sketch independently before reviewing as a group gave us a wider range of genuinely different ideas than any one of us would have produced alone. Several of our refinements came directly from one person noticing a limitation in another's sketch during review, rather than from reworking our own ideas in isolation.
 
-## Project Feedback & Responses
-* [Fill out the Feedback For](https://forms.gle/xCBtWwGwoUR8A6Lw8)
-* [View Public Response Sheet](https://docs.google.com/spreadsheets/d/1n-ynM2vjrijfOLAFeJ0SqMOiUnv9c6To3Dx9ByDkdFU/edit?usp=sharing)
-  
+
