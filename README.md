@@ -32,24 +32,25 @@ Our collection may introduce because participants may have different study habit
 
 
 | Attribute |	Type | Description |	Example |
+| :---| :--- | :--- | :--- |
 | Date	| Temporal | Date of the study/work session | 09/22/2026 |
-|What time did the session start?(start_t)|Temporal|Time of the session started|9:00 am|
-|What time did the session end?(end_time)|Temporal|Time of the session ended|	11:00 am|
-|What type of task were you doing?(task_type)|Categorial|Type of task performed|Reading|
-|How interesting was the task?(task_interest)|Quantitative|How interesting was the task, rated 1-10|	7|
-|How difficult was the task?(task_difficulty)|Quantitative|How difficult was the task, rated 1-10|	8|
-|How long did you plan to work/study(planned_duration)|Quantitative|Number of minutes planned for the session|120
-|How many minutes until your first distraction?(time_ to_ first_distraction)|Quantitative|Minutes from session until first distraction|	30|
-|How many distractions occurred?(number_ of_ distractions)|Quantitative|Total number of distractions during the session|5|
-|How focused were you during the session?(self-rate_focus)|Quantitative|Overall focus during the session, rated 1-10|6|
-|Where did you study/work?(location)|Categorial|Location where the session occurred|	Library
-|How would you describe the noise level during this session?(noise_level)|Categorial|Perceived noise level during the session|Very Noisy|
-|How many other people were around you during this session?(people_present)|Categorial|Number of other people present|	3-5 people|
-|How much interaction did you have with others?(interaction_level)|Categorial|Amount of interaction with other people|None|
-|How many hours did you sleep the previous night?(sleep_hour)|Quantitative|Hours of sleep the previous night|7.5|
-|How much phone screen time you had accumulated that day?(phone_screen_time)|Quantitative|Phone screen time accumulated before the session|145 min|
-|What caffeine did you consume before the session?(caffeine)|Categorical|Caffeineconsumed before the session|Tea|
-|Which focus strategies did you use?(focus_strategies)|Categorial (multi-select)|Focus strategies used during the session|Timer, Headphone|
+| What time did the session start? (start_t) | Temporal |Time of the session started | 9:00 am |
+| What time did the session end? (end_time) |Temporal | Time of the session ended | 11:00 am |
+| What type of task were you doing? (task_type)| Categorial | Type of task performed | Reading|
+| How interesting was the task? (task_interest)| Quantitative | How interesting was the task, rated 1-10|	7|
+| How difficult was the task?(task_difficulty)| Quantitative | How difficult was the task, rated 1-10|	8|
+| How long did you plan to work/study (planned_duration) | Quantitative| Number of minutes planned for the session | 120 |
+| How many minutes until your first distraction? (time_ to_ first_distraction) | Quantitative | Minutes from session until first distraction |	30 |
+| How many distractions occurred? (number_ of_ distractions) | Quantitative  |Total number of distractions during the session | 5 |
+| How focused were you during the session?(self-rate_focus)|Quantitative|Overall focus during the session, rated 1-10|6|
+| Where did you study/work?(location)|Categorial|Location where the session occurred|	Library
+| How would you describe the noise level during this session?(noise_level)|Categorial|Perceived noise level during the session|Very Noisy|
+| How many other people were around you during this session?(people_present)|Categorial|Number of other people present|	3-5 people|
+| How much interaction did you have with others? (interaction_level) | Categorial | Amount of interaction with other people | None |
+| How many hours did you sleep the previous night? (sleep_hour) | Quantitative | Hours of sleep the previous night | 7.5 |
+| How much phone screen time you had accumulated that day? (phone_screen_time)| Quantitative | Phone screen time accumulated before the session | 145 min |
+| What caffeine did you consume before the session? (caffeine) | Categorical | Caffeine consumed before the session | Tea |
+| Which focus strategies did you use? (focus_strategies) | Categorial (multi-select) | Focus strategies used during the session | Timer, Headphone |
 
 
 ## Task 2: Pilot and data collection
