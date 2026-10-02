@@ -54,9 +54,7 @@ Our collection may introduce because participants may have different study habit
 
 
 ## Task 2: Pilot and data collection
-## Project Feedback & Responses
-* [Fill out the Feedback For](https://forms.gle/xCBtWwGwoUR8A6Lw8)
-* [View Public Response Sheet](https://docs.google.com/spreadsheets/d/1n-ynM2vjrijfOLAFeJ0SqMOiUnv9c6To3Dx9ByDkdFU/edit?usp=sharing)
+
   
 We conducted a pilot collection of approximately 10 observations before continuing data collection the full set. The pilot showed that the general structure of the form was workable, but several attributes were not being recorded consistently. Participants entered planned duration, sleep, phone screen time and time to first distraction using different units and formats. Example planned duration was entered as both numbers and text such as “90min” and “3 hours”. We also found inconsistent task labels, such as “Meeting” and “Meetings”. One date was entered incorrectly, and some sessions had unusual start and end time that indicated that the form needed clearer instructions for sessions crossing midnight.
 
@@ -74,6 +72,10 @@ How much did you interact with other people during the session?
 •	Very little – brief interaction, such as saying hello or asking a quick question
 •	Some – several conversations/ interactions
 •	A lot – frequent or prolonged interaction
+
+## Project Feedback & Responses
+* [Fill out the Feedback For](https://forms.gle/xCBtWwGwoUR8A6Lw8)
+* [View Public Response Sheet](https://docs.google.com/spreadsheets/d/1n-ynM2vjrijfOLAFeJ0SqMOiUnv9c6To3Dx9ByDkdFU/edit?usp=sharing)
 
 ## Task 3: Data description and domain questions
 
