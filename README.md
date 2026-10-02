@@ -31,8 +31,8 @@ Our collection may fail to capture minor distractions because participants might
 Our collection may introduce because participants may have different study habits, schedules, academic activities and preferred locations, which could affect the types of observations included in our dataset. There might be bias because participants are also recording their own focus, distractions, sleep, screen time and other information. 
 
 
-|Attribute|	Type| Description |	Example|
-|Date	|Temporal|Date of the study/work session|09/22/2026|
+| Attribute |	Type | Description |	Example |
+| Date	| Temporal | Date of the study/work session | 09/22/2026 |
 |What time did the session start?(start_t)|Temporal|Time of the session started|9:00 am|
 |What time did the session end?(end_time)|Temporal|Time of the session ended|	11:00 am|
 |What type of task were you doing?(task_type)|Categorial|Type of task performed|Reading|
