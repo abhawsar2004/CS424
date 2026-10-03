@@ -51,6 +51,7 @@ Our collection may introduce because participants may have different study habit
 | How much phone screen time you had accumulated that day? (phone_screen_time)| Quantitative | Phone screen time accumulated before the session | 145 min |
 | What caffeine did you consume before the session? (caffeine) | Categorical | Caffeine consumed before the session | Tea |
 | Which focus strategies did you use? (focus_strategies) | Categorial (multi-select) | Focus strategies used during the session | Timer, Headphone |
+| How effective was the study/work session? (effectiveness) | Categorial 1-5 | Effectiveness of a session for the task | 2- Slightly effective |
 
 
 ## Task 2: Pilot and data collection
@@ -59,7 +60,7 @@ Our collection may introduce because participants may have different study habit
 We conducted a pilot collection of approximately 10 observations before continuing data collection the full set. The pilot showed that the general structure of the form was workable, but several attributes were not being recorded consistently. Participants entered planned duration, sleep, phone screen time and time to first distraction using different units and formats. Example planned duration was entered as both numbers and text such as “90min” and “3 hours”. We also found inconsistent task labels, such as “Meeting” and “Meetings”. One date was entered incorrectly, and some sessions had unusual start and end time that indicated that the form needed clearer instructions for sessions crossing midnight.
 
 Changes to be made:
-Based on this observation, we revised the collection procedure and data dictionary. We clarified that planned duration, time to first distraction, and phone screen time should be recorded in minutes, while sleep should be recorded in hours. We standardized the task categories and clarified the definitions of environmental variables. We also added clearer instructions for situations such as having no distractions and not knowing the exact amount of sleep or screen time. These changes should make the remaining observations more consistent and easier to analyze. 
+Based on this observation, we revised the collection procedure and data dictionary. We clarified that planned duration, time to first distraction, and phone screen time should be recorded in minutes, while sleep should be recorded in hours. We standardized the task categories and clarified the definitions of environmental variables. We also added clearer instructions for situations such as having no distractions and not knowing the exact amount of sleep or screen time. These changes should make the remaining observations more consistent and easier to analyze. We also added a new column for effectiveness, to see how well a session went. 
 
 The form: Questions to modify
 How long did you plan to work/study? Enter the number of minutes. Example: 120
@@ -141,7 +142,7 @@ I made this sketch to explore whether the first distraction happens earlier duri
 
 I made this sketch to look for a possible relationship between sleep the previous night and focus during a session. Each dot represents one session. Its horizontal position shows sleep in hours, and its vertical position shows the focus rating from 1 to 10. This design helps show patterns and unusual sessions, although it cannot prove that sleep caused a change in focus. I used 11 responses with usable sleep values and left out seven missing or unclear entries. Unlike the other two sketches, this one compares two number-based attributes.
 
-
+1) **Focus Strategy Map**
 ## Task 6: Summarizing
 ## Task 7: Collaboration process
 
