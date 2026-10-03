@@ -133,7 +133,7 @@ I made this sketch to compare focus and distractions across different study or w
 
 <img src="sketches/amithi_sketch2.jpg" width="600" alt="First distraction by task type sketch" />
 
-I made this sketch to explore whether the first distraction happens earlier during some types of tasks. Each horizontal line represents one session, and an X marks the time of its first distraction. The position of the X shows the number of minutes, while the rows group sessions by task type. This makes the differences between sessions easy to see, but the many lines can make the sketch crowded. The response saying “around 30” is approximate. The session with no distractions is labeled separately because its recorded zero does not mean an immediate distraction.
+I made this sketch to explore whether the first distraction happens earlier during some types of tasks. Each horizontal line represents one session, and a dot marks the time of its first distraction. The position of the dot shows the number of minutes, while the rows group sessions by task type. This makes the differences between sessions easy to see, but the many lines can make the sketch crowded. The response saying “around 30” is approximate. The session with no distractions is labeled separately because its recorded zero does not mean an immediate distraction.
 
 ### Sketch 3: Sleep and Focus
 
