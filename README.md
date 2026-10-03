@@ -123,6 +123,23 @@ This sketch shows, for four environment categories, what share of sessions had t
 
 This sketch shows, for three difficulty levels (Low 1–3, Medium 4–8, High 9–10), how many sessions had their first distraction occur within each 10-minute window of the session, using a matrix layout: difficulty as rows, time bins as columns, and cell color intensity (marks: cells; channel: color/saturation) encoding the count of sessions. We initially tried a parallel-coordinates sketch linking five attributes at once (sleep, screen time, difficulty, time to distraction, focus), but it got cluttered and hard to read once more sessions were added. We also initially planned to encode total distraction counts across the session, but realized the form only records the time of the first distraction, not every distraction event so we switched to counting sessions by first-distraction timing instead, which still lets us see whether harder tasks tend to lose focus earlier than easier ones.
 
+### Sketch 1: Focus by Location
+
+<img src="sketches/amithi_sketch1.jpg" width="600" alt="Focus by location sketch" />
+
+I made this sketch to compare focus and distractions across different study or work locations. Each circle represents one session, the number inside shows its focus rating, and the shading shows its distraction group. Light circles mean 0–3 distractions, while dark circles mean 4 or more. Grouping the circles by location makes the sessions easy to compare. However, home has many more responses than the other places, so the comparison is uneven. This design focuses on location, while my other sketches focus on task type and sleep.
+
+### Sketch 2: First Distraction by Task Type
+
+<img src="sketches/amithi_sketch2.jpg" width="600" alt="First distraction by task type sketch" />
+
+I made this sketch to explore whether the first distraction happens earlier during some types of tasks. Each horizontal line represents one session, and an X marks the time of its first distraction. The position of the X shows the number of minutes, while the rows group sessions by task type. This makes the differences between sessions easy to see, but the many lines can make the sketch crowded. The response saying “around 30” is approximate. The session with no distractions is labeled separately because its recorded zero does not mean an immediate distraction.
+
+### Sketch 3: Sleep and Focus
+
+<img src="sketches/amithi_sketch3.jpg" width="600" alt="Sleep and focus sketch" />
+
+I made this sketch to look for a possible relationship between sleep the previous night and focus during a session. Each dot represents one session. Its horizontal position shows sleep in hours, and its vertical position shows the focus rating from 1 to 10. This design helps show patterns and unusual sessions, although it cannot prove that sleep caused a change in focus. I used 11 responses with usable sleep values and left out seven missing or unclear entries. Unlike the other two sketches, this one compares two number-based attributes.
 
 
 ## Task 6: Summarizing
