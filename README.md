@@ -143,6 +143,33 @@ I made this sketch to explore whether the first distraction happens earlier duri
 I made this sketch to look for a possible relationship between sleep the previous night and focus during a session. Each dot represents one session. Its horizontal position shows sleep in hours, and its vertical position shows the focus rating from 1 to 10. This design helps show patterns and unusual sessions, although it cannot prove that sleep caused a change in focus. I used 11 responses with usable sleep values and left out seven missing or unclear entries. Unlike the other two sketches, this one compares two number-based attributes.
 
 1) **Focus Strategy Map**
+<img src = "mariam_sketch1.jpg" width="500" alt="Focus and Strategy sketch" />
+
+This sketch asks the question " How do participants combine different strategies during their study/work sessions? In this sketch you will the more frequently two strategies appear together, the stronger/larger connection would be. The attribute in this is Focus strategies.
+
+Examples:
+1) Timer + Music
+2) Headpones
+3) Music
+4) Phone away
+
+A line is drawn between two strategies when they are used together in the same session. A frequently combination occurring like Music + Headphones have double lines to indicate the common strategy. 
+
+2) **Time of Session Map**
+<img src ="mariam_sketch2.jpg" width="500" alt="Distractions and Focus determined by Time" />
+
+This sketch asks the question " Does the pattern of focus and first distraction vary by time of day? The attributes in this are Date, Focus, Distraction, start of the session. We have 14 hour time line, Each dot is a session, the dot position is when the session started, the arrow length connected to the dot is the time until first distraction, the dot size the focus rating.
+
+3) **Session Profile Map**
+<img src = "mariam_sketch3.jpg" width="500" alt="Session Profile Map" />
+
+This sketch asks the question " How do does the study/work session differences in their overall focus and distraction profiles? The attributes in this are Task Interest, Focus Rating, Number of Distraction, Task Difficulty, Time of first distraction. I used a spider style sketch to display all the strengths and weakness of a session.
+
+Example: 
+1) Session A: Has lower focus, less interesting, difficulty, and many distractions
+2) Session B: Has High focus, interesting, moderately difficult, few distractions. 
+
+
 ## Task 6: Summarizing
 ## Task 7: Collaboration process
 
