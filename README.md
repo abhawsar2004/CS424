@@ -187,7 +187,7 @@ Example:
 - **Question**: Is there a pattern between sleep and focus?
 - **Attributes**: sleep hours and focus rating per session.
 - Uses a scatter plot with two sessions highlighted as outliers.
-- Shows whether more sleep generally leads to better focus, and surfaces sessions that break the expected pattern — someone focusing well on little sleep, or poorly despite resting enough.
+- Shows whether more sleep generally leads to better focus, and surfaces sessions that break the expected pattern - someone focusing well on little sleep, or poorly despite resting enough.
 - 
 ## Task 6: Summarizing
 
