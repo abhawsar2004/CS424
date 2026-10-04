@@ -3,32 +3,32 @@ FocusTrace is a self-observed dataset built around everyday focus sessions — s
 
 ## Task 1: Observation and data collection plan
 
-1)	What configures one observation
-One observation will consist of one completed study/work session recorded by one group member. Each row in our dataset will represent one session, including the task, duration focus, distractions, location and other factors for that session.
+1)	What configures one observation?
+Each row in our dataset will represent one session, including the task, duration focus, distractions, location and other factors for that session.
 
 2)	What attributes will you record for each observation?
-For each study/work session, we will record the date, start and end time of the, task type, task interest, task difficulty, self- rate focus, planned duration , time to first distraction, number of distractions, location, Environment- noise level, number of people, interaction level, sleep duration from previous night, phone screen time before the session, caffeine consumed before the session, and focus strategies used. 
+For each study/work session, we will record the date, start and end time of the, task type, task interest, task difficulty, self- rate focus, planned duration , time to first distraction, number of distractions, location, Environment- noise level, number of people, interaction level, sleep duration from previous night, phone screen time before the session, caffeine consumed before the session, , focus strategies used and how effective was the session. 
 
-3)	Where and when will you record each observation
-We will collect the data using a Google Form. That form then will be distributed to participants outside of our group. Participants will complete the form after their study/work sessions and report information about the session, including the time, task, focus, distractions, locations and environmental conditions. Participants can complete the form wherever they normally study or work, such as their home, library, classroom or café. We plan to collect data through Friday 09/25/2026. 
+3)	Where and when will you record each observation?
+We will collect the data using a Google Form. That form then will be distributed to participants outside of our group. Participants will complete the form after their study/work sessions and report information about the session, including the time, task, focus, distractions, locations and environmental conditions.
 
 4)	How many locations, times, or days will you collect it?
-We plan to collect observations from multiple participants over several days, from September 22 through September 25, 2026. Since participants have different schedules and study habits, observations will be collected at different times a day and in different locations. Participants will be encouraged to record multiple study/work sessions, which will give us observations across different tasks, locations and environmental conditions. 
-
+We plan to collect observations from multiple participants over several days. Since participants have different schedules and study habits, observations will be collected at different times a day and in different locations. Participants will be encouraged to record multiple study/work sessions, which will give us observations across different tasks, locations and environmental conditions. 
 
 5)	How will ensure that your data captures meaningful variation rather than a single snapshot?
 We will collect data from multiple participants and encourage each participants to record multiple sessions over several days. Because participants will study or work at their normal locations and times, we expect variations in task type, task interest, task difficulty, location, noise level, number of people present, interaction, sleep, phone screen time, caffeine intake and focus strategies. We will monitor the responses while collecting the data to determine whether there is enough variation to support meaningful comparisons. If we find that an attribute has little variation or does produce useful data, we may revise our collection strategy or remove or modify that attribute.
-6)	How will you decide on what to observe?
+
+7)	How will you decide on what to observe?
 We will focus on regular study and work sessions performed by the participants. A single observation will be one completed study/work session. Participants will record sessions involving activities such as studying, coding, reading, writing, or completing assignments. We chose these observations because they allow us to examine task characteristics, environmental conditions and other factors.
 
-7)	How will the collection be divided among members?
+8)	How will the collection be divided among members?
 Our group members will work together to design and distribute the Google Form, defining the attributes. The actual data observations will be collected from participants outside out group. Each member will help distribute Google From and recruit participants. We will work together to monitor the responses and check the collected data for missing or inconsistent values. We will communicate with each other if we need to clarify or need help on something.
 
-8)	What might your collection process fail to capture?
+9)	What might your collection process fail to capture?
 Our collection may fail to capture minor distractions because participants might forget to record them. They might also intercept terms such as “distractions” and “noise level”, or “interactions” differently. Self-reported measures such as task interest, difficulty, and self-rate focus, sleep, may also be inaccurate since participants are estimating their own experiences. Additionally, participants may not record every study/work session, so the collected observations may not represent all their sessions. 
 
-9)	How might your collection process introduce bias?
-Our collection may introduce because participants may have different study habits, schedules, academic activities and preferred locations, which could affect the types of observations included in our dataset. There might be bias because participants are also recording their own focus, distractions, sleep, screen time and other information. 
+10)	How might your collection process introduce bias?
+Our collection may introduce bias because participants may have different study habits, schedules, academic activities and preferred locations, which could affect the types of observations included in our dataset. There might be bias because participants are also recording their own focus, distractions, sleep, screen time and other information. 
 
 
 | Attribute |	Type | Description |	Example |
@@ -74,7 +74,7 @@ How much did you interact with other people during the session?
 •	Some – several conversations/ interactions
 •	A lot – frequent or prolonged interaction
 
-## Project Feedback & Responses
+## Project Responses
 * [Fill out the Feedback For](https://forms.gle/xCBtWwGwoUR8A6Lw8)
 * [View Public Response Sheet](https://docs.google.com/spreadsheets/d/1n-ynM2vjrijfOLAFeJ0SqMOiUnv9c6To3Dx9ByDkdFU/edit?usp=sharing)
 
