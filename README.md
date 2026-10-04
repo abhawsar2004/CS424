@@ -188,7 +188,7 @@ Example:
 - **Attributes**: sleep hours and focus rating per session.
 - Uses a scatter plot with two sessions highlighted as outliers.
 - Shows whether more sleep generally leads to better focus, and surfaces sessions that break the expected pattern - someone focusing well on little sleep, or poorly despite resting enough.
-- 
+  
 ## Task 6: Summarizing
 
 We tried a lot of different approaches across our nine sketches — relational comparisons, timelines, stacked bars, heatmaps, even a parallel-coordinates attempt — instead of just redoing the same chart with different fields. A lot of this came down to actually understanding our data better as we went. A few ideas, like showing clustered distractions or a full event timeline, fell apart once we realized the form only asks for the time of the first distraction, not every one that happens. If we did this again, logging every distraction instead of just the first would've opened up a lot more of what we originally wanted to build.
