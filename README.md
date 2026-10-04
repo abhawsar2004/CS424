@@ -109,43 +109,43 @@ Writing these out changed how we think about our questions. At first they were p
 
 ## Task 5: Visualization sketches
 
-1. **The Estimation Gap —** Planned Duration vs. Time to First Distraction
+1) **Planned Duration vs. Time to First Distraction**
 <img width="600" height="476" alt="image" src="https://github.com/user-attachments/assets/85e966e1-dd76-4e9d-b750-08285966d01e" />
 
 This sketch shows planned session duration against time to first distraction for five sessions, using a dumbbell design: a black dot for planned time, a colored dot for time to first distraction, and the connecting line's length showing the gap between them, colored by effectiveness rating (1–3 vs. 4–5).  We initially plotted planned vs. actual session length, but realized actual duration didn't clearly connect to attention. A session could end early for reasons unrelated to focus. We switched to time to first distraction instead, since it ties the gap directly to when attention breaks down, giving a more meaningful read on whether bigger gaps relate to lower effectiveness.
 
-2. **Distraction Timing by Environment —** Early vs. Middle, Across Noise and Social Context
+2) **Distraction Timing by Environment**
 <img width="600" height="567" alt="image" src="https://github.com/user-attachments/assets/b61fa8b4-12d8-486a-a947-ee42893f5289" />
 
 This sketch shows, for four environment categories, what share of sessions had their first distraction occur early versus in the middle of the planned session. We originally planned to include "late" and "clustered" distraction patterns, but realized our form only captures a single first-distraction timestamp per session, not a full sequence so clustering isn't measurable. The stacked bars use color and proportion to compare timing patterns across quiet/noisy and alone/others conditions, revealing an unexpected pattern where quiet, solitary sessions had more early distractions than quiet sessions with others present.
 
-3. **The Difficulty Heatmap —** First Distraction Timing by Task Difficulty
+3) **First Distraction Timing by Task Difficulty**
 <img width="600" height="468" alt="image" src="https://github.com/user-attachments/assets/221c674e-49dc-4d75-820c-7daf1ee61c2d" />
 
 This sketch shows, for three difficulty levels (Low 1–3, Medium 4–8, High 9–10), how many sessions had their first distraction occur within each 10-minute window of the session, using a matrix layout: difficulty as rows, time bins as columns, and cell color intensity (marks: cells; channel: color/saturation) encoding the count of sessions. We initially tried a parallel-coordinates sketch linking five attributes at once (sleep, screen time, difficulty, time to distraction, focus), but it got cluttered and hard to read once more sessions were added. We also initially planned to encode total distraction counts across the session, but realized the form only records the time of the first distraction, not every distraction event so we switched to counting sessions by first-distraction timing instead, which still lets us see whether harder tasks tend to lose focus earlier than easier ones.
 
-### Sketch 1: Focus by Location
+4) **Focus by Location**
 
 <img src="sketches/amithi_sketch1.jpg" width="600" alt="Focus by location sketch" />
 
 I made this sketch to compare focus and distractions across different study or work locations. Each circle represents one session, the number inside shows its focus rating, and the shading shows its distraction group. Light circles mean 0–3 distractions, while dark circles mean 4 or more. Grouping the circles by location makes the sessions easy to compare. However, home has many more responses than the other places, so the comparison is uneven. This design focuses on location, while my other sketches focus on task type and sleep.
 
-### Sketch 2: First Distraction by Task Type
+5) **First Distraction by Task Type**
 
 <img src="sketches/amithi_sketch2.jpg" width="600" alt="First distraction by task type sketch" />
 
 I made this sketch to explore whether the first distraction happens earlier during some types of tasks. Each horizontal line represents one session, and a dot marks the time of its first distraction. The position of the dot shows the number of minutes, while the rows group sessions by task type. This makes the differences between sessions easy to see, but the many lines can make the sketch crowded. The response saying “around 30” is approximate. The session with no distractions is labeled separately because its recorded zero does not mean an immediate distraction.
 
-### Sketch 3: Sleep and Focus
+6) **Sleep and Focus**
 
 <img src="sketches/amithi_sketch3.jpg" width="600" alt="Sleep and focus sketch" />
 
 I made this sketch to look for a possible relationship between sleep the previous night and focus during a session. Each dot represents one session. Its horizontal position shows sleep in hours, and its vertical position shows the focus rating from 1 to 10. This design helps show patterns and unusual sessions, although it cannot prove that sleep caused a change in focus. I used 11 responses with usable sleep values and left out seven missing or unclear entries. Unlike the other two sketches, this one compares two number-based attributes.
 
-1) **Focus Strategy Map**
+7) **Focus Strategy Map**
 <img src = "mariam_sketch1.jpg" width="500" alt="Focus and Strategy sketch" />
 
-This sketch asks the question " How do participants combine different strategies during their study/work sessions? In this sketch you will the more frequently two strategies appear together, the stronger/larger connection would be. The attribute in this is Focus strategies.
+This sketch asks the question "How do participants combine different strategies during their study/work sessions?" In this sketch you will the more frequently two strategies appear together, the stronger/larger connection would be. The attribute in this is Focus strategies.
 
 Examples:
 1) Timer + Music
@@ -155,22 +155,46 @@ Examples:
 
 A line is drawn between two strategies when they are used together in the same session. A frequently combination occurring like Music + Headphones have double lines to indicate the common strategy. 
 
-2) **Time of Session Map**
+8) **Time of Session Map**
 <img src ="mariam_sketch2.jpg" width="500" alt="Distractions and Focus determined by Time" />
 
-This sketch asks the question " Does the pattern of focus and first distraction vary by time of day? The attributes in this are Date, Focus, Distraction, start of the session. We have 14 hour time line, Each dot is a session, the dot position is when the session started, the arrow length connected to the dot is the time until first distraction, the dot size the focus rating.
+This sketch asks the question "Does the pattern of focus and first distraction vary by time of day?" The attributes in this are Date, Focus, Distraction, start of the session. We have 14 hour time line, Each dot is a session, the dot position is when the session started, the arrow length connected to the dot is the time until first distraction, the dot size the focus rating.
 
-3) **Session Profile Map**
+9) **Session Profile Map**
 <img src = "mariam_sketch3.jpg" width="500" alt="Session Profile Map" />
 
-This sketch asks the question " How do does the study/work session differences in their overall focus and distraction profiles? The attributes in this are Task Interest, Focus Rating, Number of Distraction, Task Difficulty, Time of first distraction. I used a spider style sketch to display all the strengths and weakness of a session.
+This sketch asks the question "How do does the study/work session differences in their overall focus and distraction profiles?" The attributes in this are Task Interest, Focus Rating, Number of Distraction, Task Difficulty, Time of first distraction. I used a spider style sketch to display all the strengths and weakness of a session.
 
 Example: 
 1) Session A: Has lower focus, less interesting, difficulty, and many distractions
 2) Session B: Has High focus, interesting, moderately difficult, few distractions. 
 
+### Refined Sketches
 
+### 1. Distraction Count by Noise Level and Location
+
+<img width="600" height="468" alt="image" src="https://github.com/user-attachments/assets/134eb4d9-d367-4a9c-b5a0-d289ad63044a" />
+
+- **Question**: Do quieter sessions or certain locations show fewer distractions and higher focus?
+- **Attributes**: distraction count, noise level, location (grouped Home/Library/Other), average focus per group, and sample size.
+- Uses box-and-whisker marks (range, quartiles, median) colored by average focus.
+- Shows how distraction levels and typical focus vary across different environments and locations, making it easy to spot which settings tend to be more distraction-prone and which hold focus better.
+
+### 2. Sleep Hours vs. Focus Rating
+
+<img width="600" height="468" alt="image" src="https://github.com/user-attachments/assets/feff2e22-a10f-449b-8ac9-8fb61c8f2f94" />
+
+- **Question**: Is there a pattern between sleep and focus?
+- **Attributes**: sleep hours and focus rating per session.
+- Uses a scatter plot with two sessions highlighted as outliers.
+- Shows whether more sleep generally leads to better focus, and surfaces sessions that break the expected pattern — someone focusing well on little sleep, or poorly despite resting enough.
+- 
 ## Task 6: Summarizing
+
+We tried a lot of different approaches across our nine sketches — relational comparisons, timelines, stacked bars, heatmaps, even a parallel-coordinates attempt — instead of just redoing the same chart with different fields. A lot of this came down to actually understanding our data better as we went. A few ideas, like showing clustered distractions or a full event timeline, fell apart once we realized the form only asks for the time of the first distraction, not every one that happens. If we did this again, logging every distraction instead of just the first would've opened up a lot more of what we originally wanted to build.
+
+That variety ended up being useful because our four questions didn't really fit the same mold — noise and location needed to show full distributions so small groups didn't look misleadingly solid, while sleep vs. focus really only made sense as a scatter plot where we could actually point at the outliers. Coming up with completely different sketch ideas each time felt like the most useful part of the process, since it meant we weren't just tweaking one design but actually rethinking how to look at the data. Picking the two to refine felt more repetitive in comparison, going back and forth on which ones best matched our questions took a few rounds before we landed on these two.
+
 ## Task 7: Collaboration process
 
 We worked as a team of three, communicating through a mix of quick in-person check-ins after class and ongoing online chats for day-to-day updates. Mariam created the Google Form, and all three of us shared it with our own friends and family to maximize responses, encouraging participants to log as many sessions as possible to build up a reasonably sized dataset.
