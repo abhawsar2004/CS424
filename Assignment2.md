@@ -23,9 +23,6 @@ What's where:
 - `vis/screenshots/`: screenshots of the charts at different stages.
 - [`Assignment2.md`](Assignment2.md): the Assignment 2 writeup, organized by Tasks 1-7.
 
-
-## Task 1: Revisit Your Data and Questions
-
 ## Task 1: Revisit Your Data and Questions
 
 We're keeping the same four questions from Assignment 1, since they still hold up well with the data we have: noise and distractions/focus, task type and time to first distraction, location and focus/distractions, and sleep vs. focus. The one thing we're flagging is that task type is still heavily skewed toward "Studying," so we'll either group it into Studying vs. Non-studying or keep it as is and call out the imbalance when we discuss results.
