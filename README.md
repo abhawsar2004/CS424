@@ -21,7 +21,7 @@ What's where:
 - `data/raw/form_responses.csv`: the original responses from our Google Form, not edited.
 - `vis/index.html` and `vis/charts.js`: the visualization code.
 - `vis/screenshots/`: screenshots of the charts at different stages.
-- `A2_Task4.md` and `A2_Task5.md`: writeups for Assignment 2 Tasks 4 and 5.
+- [`Assignment2.md`](Assignment2.md): the Assignment 2 writeup, organized by Tasks 1-7.
 
 # Assignment 1
 
