@@ -24,9 +24,20 @@ What's where:
 - [`Assignment2.md`](Assignment2.md): the Assignment 2 writeup, organized by Tasks 1-7.
 
 
-## Task 1: Revisit your data and questions
+## Task 1: Revisit Your Data and Questions
 
-_To be added._
+## Task 1: Revisit Your Data and Questions
+
+We're keeping the same four questions from Assignment 1, since they still hold up well with the data we have: noise and distractions/focus, task type and time to first distraction, location and focus/distractions, and sleep vs. focus. The one thing we're flagging is that task type is still heavily skewed toward "Studying," so we'll either group it into Studying vs. Non-studying or keep it as is and call out the imbalance when we discuss results.
+
+Looking back at the dataset, we found a few things worth fixing before analysis. The following cleaning and changes will be made:
+
+- Clean the sleep column into one consistent hours format, since it currently mixes hours and minutes in different styles ("7", "420", "7 hours")
+- Group location into Home/Library/Other, since most individual places only show up once
+- Add an actual session duration column, calculated from start and end time, to compare against planned duration
+- Convert distraction count into a rate (distractions per minute) instead of a raw count, so sessions of different lengths can be compared fairly
+
+One real limitation we're keeping as-is: our form only captures the time of the first distraction, not every distraction in a session, so anything involving distraction patterns or clustering is out of scope for this round.
 
 ## Task 2: Prepare the data
 
