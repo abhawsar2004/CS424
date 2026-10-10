@@ -30,7 +30,6 @@ We're keeping the same four questions from Assignment 1, since they still hold u
 Looking back at the dataset, we found a few things worth fixing before analysis. The following cleaning and changes will be made:
 
 - Clean the sleep column into one consistent hours format, since it currently mixes hours and minutes in different styles ("7", "420", "7 hours")
-- Group location into Home/Library/Other, since most individual places only show up once
 - Add an actual session duration column, calculated from start and end time, to compare against planned duration
 - Convert distraction count into a rate (distractions per minute) instead of a raw count, so sessions of different lengths can be compared fairly
 
