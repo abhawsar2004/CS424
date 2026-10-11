@@ -37,7 +37,15 @@ One real limitation we're keeping as-is: our form only captures the time of the 
 
 ## Task 2: Prepare the data
 
-_To be added._
+All transformations are in 'notebooks/Data_Cleaning.ipynb', which turns the raw form export into 'data/cleaned/'cleaned_data.csv. Re-running it from the top reproduces the cleaned file.
+
+- **Standardized messy free-text numbers.** Planned duration, time to first distraction, sleep and phone screen time came in mixed formats ("90min", "3 hours", "480", "Around 30"). They are now plain numbers in one unit (minutes, or hours for sleep). Invalid text like "Option 1" was marked missing.
+- **Fixed dates and times.** A typed date of `12/9/2000` was clearly wrong, so we used the form's auto-logged timestamp for the session date. Start and end times were converted to 24-hour format.
+- **Added `Total_Duration_Minutes`.** It is computed from start and end time and handles sessions that cross midnight. Sessions over 5 hours are flagged for review instead of silently changed.
+- **Grouped categorical answers.** Task type, location, noise level and caffeine were mapped to the options on the form, with anything else grouped as "Other". This keeps the categories usable for comparison.
+- **One-hot encoded focus strategies.** People could pick several strategies per session, so each strategy became its own 0/1 column.
+- **Filled the remaining missing values with the median and added `_imputed` flags.** We avoided 0 because it would be a false value. The flags let us exclude those rows from an analysis such as sleep vs. focus. Real zeros, such as no distractions, were left alone.
+
 
 ## Task 3: Explore the data
 
