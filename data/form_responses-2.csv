@@ -1,0 +1,81 @@
+Timestamp,What date did this study/work session take place?,What time did the session start?,What time did the session end?,What type of task were you doing?,How interesting was the task?,How difficult was the task?,How long did you plan to work/study? Enter the number of minutes. Example: 120,How many minutes after starting the session did you experience your first distraction? Enter a whole number. If no distraction occurred enter 0 ,How many distractions occurred? (Whole Number),How focused were you during the session?,Where did you study/work?,How would you describe the noise level during this session?,How many other people were around you during this session?,How much interaction did you have with other people during the session?,How many hours did you sleep the previous night? Example: 7.5,How many minutes of phone screen time had you accumulated before this session? Example: 145,What caffeine did you consume before the session?,Which focus strategies did you use,How effective was this study/work session overall? (Rate 1-5)
+9/21/26 12:24,9/21/26,8:30:00 AM,11:00:00 AM,Studying,5,7,120,10,16,9,Office in Workplace,Quiet,1-2 people,None – no interaction,6,105,Coffee,Noise cancelling headphones,5- Extremely effective
+9/21/26 12:41,9/21/26,10:00:00 AM,11:25:00 AM,Writing,5,7,90,3,19,5,Home,Very Quiet,3-5 people,Some,4.5,40,None,"Background Music, Noise cancelling headphones",3- Moderately effective
+9/21/26 13:06,9/21/26,11:15:00 AM,12:40:00 PM,Reading,4,8,90 min,3 minutes,21,4,Home,Moderate,Alone,None – no interaction,9,,Coffee,None,3- Moderately effective
+9/21/26 23:14,9/21/26,8:00:00 PM,8:25:00 PM,Homework/Assignments,6,4,30min,Around 4,5,7,Library,Very Quiet,6-10 people,"Very little – brief interaction, such as saying hello or asking a quick question",510 min,400,Coffee,None,4- Very effective
+9/22/26 01:02,9/21/26,9:00:00 PM,9:25:00 AM,Studying,7,5,1 hours,13,1,7,Library,Quiet,Alone,None – no interaction,6.5,,None,Timer,4- Very effective
+9/22/26 13:14,9/22/26,9:15:00 AM,12:05:00 PM,Studying,4,4,150,2,50,5,Quiet lounge area,Very Quiet,1-2 people,None – no interaction,6,90 mins,Soda,Lofi playlist,2- Slightly effective
+9/22/26 15:14,9/21/26,5:30:00 AM,7:00:00 AM,Studying,3,7,120,30,3,7,Home,Very Quiet,1-2 people,,240,Option 1,,"Noise cancelling headphones, Timer",3- Moderately effective
+9/22/26 15:19,9/22/26,7:00:00 AM,9:00:00 AM,Studying,9,8,120,40,2,10,Bus,Quiet,6-10 people,,4 hours,2 hours,,,5- Extremely effective
+9/22/26 15:34,12/9/00,1:00:00 PM,2:00:00 PM,Reading,8,1,60 minutes,20 minutes ,3,6,Home,Moderate,Alone,Very little,300 minutes ,240 minutes ,Soda,,2- Slightly effective
+9/22/26 15:35,9/22/26,3:30:00 PM,4:30:00 PM,Homework/Assignments,10,10,90min,30min,3,9,Library,Quiet,6-10 people,Very little,7 hours ,3hours,Coffee,"Phone in another room, Focus app",4- Very effective 
+9/22/26 16:18,9/22/26,9:00:00 AM,11:00:00 AM,Studying,7,8,120 minutes,45 minutes,3,7,Home,Very Quiet,Alone,,480,30 minutes,,,3- Moderately effective
+9/22/26 16:20,9/22/26,12:15:00 PM,12:50:00 PM,Meeting,9,5,30 mins ,0,0,10,Office in Workplace,Quiet,1-2 people,A lot,8,45,Tea,Phone in another room,5- Extremely effective
+9/22/26 17:02,9/22/26,4:20:00 PM,4:58:00 AM,Studying,6,4,60,5,3,7,Library,Moderate,3-5 people,Some,7,200,Coffee,,3- Moderately effective
+9/22/26 17:05,9/22/26,4:00:00 PM,5:00:00 PM,Meeting,6,4,60,Around 30,3,9,Table at CDRLC ,Moderate,1-2 people,A lot,240 minutes ,248 minutes ,,"Background Music, Noise cancelling headphones, Timer",4- Very effective 
+9/22/26 18:38,9/22/26,12:30:00 PM,6:00:00 PM,Studying,7,8,300 minutes ,0,0,10,Library,Very Quiet,Alone,A lot,480,180,,,5- Extremely effective
+9/22/26 21:33,9/22/26,1:00:00 AM,2:33:00 AM,Writing,4,1,20,3,20+,5,Home,Quiet,3-5 people,A lot,6,8,,,2- Slightly effective
+9/22/26 22:35,9/22/26,7:30:00 PM,8:00:00 PM,Reading,6,7,45,4,8,5,Office in Workplace,Moderate,1-2 people,Some,6.5,245,Coffee,"Focus app, Timer",4- Very effective
+9/23/26 08:29,9/23/26,9:00:00 AM,10:00:00 AM,Reading,8,4,120,15,5,5,Home,Moderate,1-2 people,,,,Tea,,2- Slightly effective
+9/23/26 09:14,9/23/26,8:30:00 AM,9:30:00 AM,Meeting,7,3,60,15,2,7,Campus,Quiet,1-2 people,Some,300,500,,Noise cancelling headphones,3- Moderately effective
+9/23/26 10:30,9/23/26,10:00:00 AM,11:00:00 AM,Meetings,7,8,3 hours,5min,6,6,Home,Quiet,Alone,,390,600,Coffee,,2- Slightly effective
+9/23/26 10:50,9/23/26,8:00:00 AM,8:45:00 AM,Writing,2,6,45,Around 3,12,5,Campus,Quiet,1-2 people,"Very little – brief interaction, such as saying hello or asking a quick question",7.5,255,Coffee,None,5- Extremely effective
+9/23/26 14:35,9/23/26,2:00:00 PM,2:30:00 PM,Meeting,8,4,30 minutes,5,1,10,Office in Workplace ,Quiet,Alone,,8 hours,220 minutes ,Light lunch ,Airpods ,5- Extremely effective
+9/23/26 15:59,9/23/26,12:00:00 PM,3:00:00 PM,Job assessments,4,7,60 min,35,5,8,Quiet lounge area,Quiet,1-2 people,,390 min,,Coffee,Background Music,4- Very effective 
+9/24/26 00:09,9/24/26,8:30:00 AM,8:45:00 AM,Studying,4,6,60,15,1,4,Home,Moderate,Alone,,360 minutes ,45,Tea,,2- Slightly effective
+9/24/26 03:06,9/23/26,9:00:00 PM,11:25:00 PM,Studying,9,6,3 hr,6,18,9,Bus,Moderate,6-10 people,None – no interaction,,245,None,"Noise cancelling headphones, Timer",5- Extremely effective
+9/24/26 13:35,9/24/26,7:15:00 AM,9:40:00 AM,Homework/Assignments,5,5,120,7,21,7,Cafe,Moderate,6-10 people,"Very little – brief interaction, such as saying hello or asking a quick question",6.5,45,None,"Background Music, Noise cancelling headphones",3- Moderately effective
+9/24/26 17:39,9/24/26,1:15:00 PM,2:30:00 PM,Meeting,7,6,60,6,16,6,Office in Workplace,Quiet,Alone,A lot,5,115,Coffee,Phone in another room,5- Extremely effective
+9/25/26 01:13,9/24/26,11:00:00 PM,11:25:00 PM,Homework/Assignments,6,4,30,6,3,6,Cafe,Moderate,More than 10 people,"Very little – brief interaction, such as saying hello or asking a quick question",7,310,Coffee,"Background Music, Noise cancelling headphones",3- Moderately effective
+9/25/26 01:23,9/24/26,8:30:00 PM,10:05:00 PM,Studying,7,8,90,7,14,7,Home,Quiet,3-5 people,None – no interaction,270,210,Tea,Timer,4- Very effective
+9/25/26 02:33,9/24/26,9:30:00 PM,10:40:00 PM,Homework/Assignments,4,6,60,10min,6,6,Home,Moderate,Alone,None – no interaction,6,105,Coffee,"Noise cancelling headphones, Timer",4- Very effective
+9/25/26 15:58,9/25/26,2:45:00 PM,3:15:00 PM,Studying,4,8,45,13,2,6,Home,Very Quiet,Alone,"Very little – brief interaction, such as saying hello or asking a quick question",5.5,120,Tea,None,4- Very effective
+9/25/26 17:15,9/25/26,11:00:00 AM,2:40:00 PM,Studying,10,7,180,8,19,8,Library,Very Quiet,6-10 people,None – no interaction,6,180,Coffee,Background Music,4- Very effective
+9/25/26 23:22,9/25/26,8:30:00 PM,9:50:00 PM,Studying,6,8,60,3,19,5,Study place (EIEP Lounge),Moderate,More than 10 people,None – no interaction,7.5,235,Tea,None,2- Slightly effective
+9/25/26 23:59,9/25/26,9:00:00 PM,12:00:00 AM,Writing,4,4, 120 min,30,10,5,Home,Moderate,1-2 people,Very little,480 min,480 min,,Background Music,5- Extremely effective
+9/26/26 16:40,9/26/26,2:30:00 PM,3:10:00 PM,Studying,5,6,60,6 minutes,8,4,Home,Moderate,3-5 people,Some,6.5,240,Coffee,Noise cancelling headphones,2- Slightly effective
+9/26/26 20:52,9/26/26,4:45:00 PM,6:55:00 PM,Homework/Assignments,9,4,120,5,24,6,Library,Very Quiet,More than 10 people,"Very little – brief interaction, such as saying hello or asking a quick question",6.5,90 minutes,Coffee,Phone in another room,3- Moderately effective
+9/26/26 21:41,9/26/26,5:45:00 PM,6:10:00 PM,Meeting,6,8,30 min,6,3,6,Office in Workplace ,Quiet,3-5 people,A lot,8,305,Coffee,Background Music,4- Very effective
+9/26/26 23:38,9/26/26,9:00:00 PM,11:05:00 PM,Writing,8,4,120,6,17,8,home,Quiet,Alone,"Very little – brief interaction, such as saying hello or asking a quick question",6,85 mins,None,Background Music,4- Very effective
+9/27/26 00:42,9/26/26,10:30:00 PM,10:45:00 PM,Meetings,7,6,30,2,6,2,Office in Workplace,Quiet,Alone,A lot,5.5,315,None,None,2- Slightly effective
+9/27/26 19:08,9/27/26,3:30:00 PM,4:40:00 PM,Studying,7,4,2 hours,3,18,5,Cafe,Noisy,More than 10 people,"Very little – brief interaction, such as saying hello or asking a quick question",6,210,Coffee,Noise cancelling headphones,3- Moderately effective
+9/27/26 21:23,9/27/26,8:00:00 PM,9:20:00 AM,Homework/Assignments,4,10,120 mins,36,2,10,Home,Quiet,1-2 people,Very little,480,360,,,5- Extremely effective
+9/27/26 22:42,9/27/26,7:00:00 PM,8:00:00 PM,Writing,8,8,60,5,11,7,Library,Quiet,More than 10 people,None – no interaction,7,235,None,"Focus app, Timer",4- Very effective
+9/27/26 23:11,9/27/26,9:30:00 PM,10:35:00 PM,Writing,3,1,1 hr,7 minutes,10,4,Cafe,Noisy,6-10 people,Some,7.5,365,Energy drink,None,4- Very effective
+9/28/26 11:37,9/28/26,7:30:00 AM,8:15:00 AM,Writing,6,7,60,4,13,4,Bus,Noisy,6-10 people,"Very little – brief interaction, such as saying hello or asking a quick question",,90,Soda,Timer,4- Very effective
+9/28/26 11:50,9/28/26,8:00:00 AM,10:20:00 AM,Writing,8,6,120,11,10,8,Home,Moderate,1-2 people,"Very little – brief interaction, such as saying hello or asking a quick question",6.5 hrs,220,Coffee,"Phone in another room, Focus app",4- Very effective
+9/28/26 14:31,9/28/26,9:15:00 AM,11:35:00 AM,Reading,10,8,120,6,21,7,Library,Very Quiet,6-10 people,Some,7,235 mins,None,Timer,3- Moderately effective
+9/28/26 16:40,9/28/26,3:30:00 PM,4:40:00 PM,Studying,7,4,60,12,4,7,Home,Quiet,Alone,None – no interaction,6,45,,Background Music,3- Moderately effective
+9/29/26 16:18,9/29/26,2:00:00 PM,2:55:00 PM,Meeting,7,7,60,11,5,7,Campus,Quiet,1-2 people,Some,8,160,None,"Focus app, Timer",4- Very effective
+9/29/26 17:30,9/29/26,3:30:00 PM,5:20:00 PM,Reading,6,9,120,7,15,7,Study place (EIEP Lounge),Quiet,More than 10 people,None – no interaction,8,115,Coffee,"Noise cancelling headphones, Timer",3- Moderately effective
+9/29/26 18:45,9/29/26,10:30:00 AM,1:00:00 PM,Studying,8,6,150,40,3,8,Study place (EIEP Lounge),Quiet,More than 10 people,"Very little – brief interaction, such as saying hello or asking a quick question",6,30,Coffee,Background Music,4- Very effective
+9/29/26 18:47,9/29/26,5:15:00 PM,6:30:00 PM,Studying,9,7,90,20,3,6,Home,Quiet,Alone,None – no interaction,6,160,,Background Music,3- Moderately effective
+9/29/26 20:49,9/29/26,5:15:00 PM,7:15:00 PM,Homework/Assignments,7,6,120,8,17,7,Library,Very Quiet,Alone,"Very little – brief interaction, such as saying hello or asking a quick question",,2.6 hours,Matcha,"Focus app, Timer",3- Moderately effective
+9/30/26 00:04,9/29/26,9:00:00 PM,10:15:00 PM,Studying,7,9,90min,5,14,5,Library,Quiet,Alone,None – no interaction,6.5,170,None,"Focus app, Timer",4- Very effective
+9/30/26 02:40,9/29/26,11:45:00 PM,1:40:00 AM,Studying,5,4,120,4,24,5,Cafe,Moderate,More than 10 people,None – no interaction,7.5,160 minutes,Tea,"Focus app, Timer",3- Moderately effective
+9/30/26 11:04,9/30/26,8:45:00 AM,10:30:00 AM,Studying,10,6,90,5,12,9,Home,Moderate,Alone,None – no interaction,5.5 hrs,250,None,"Phone in another room, Focus app",5- Extremely effective
+9/30/26 15:49,9/30/26,1:30:00 PM,2:50:00 AM,Studying,7,5,90,20,3,6,Home,Quiet,Alone,None – no interaction,7,60,,"Background Music, Timer",3- Moderately effective
+10/1/26 13:12,10/1/26,7:00:00 AM,9:30:00 AM,Writing,4,3,150,45,1,10,Library,Very Quiet,Alone,None – no interaction,4.5,30,Energy drink,Noise cancelling headphones,5- Extremely effective
+10/1/26 23:53,10/1/26,9:30:00 PM,11:35:00 PM,Homework/Assignments,6,6,150,11min,14+,5,Home,Quiet,1-2 people,Some,5.5,not sure maybe 3hrs,Tea,None,3- Moderately effective
+10/2/26 17:06,10/2/26,3:00:00 PM,4:30:00 PM,Job assessments,1,2,90,about 5,14,7,Home ,Very Quiet,1-2 people,None – no interaction,450,2.2 hours,None,"Noise cancelling headphones, Timer",5- Extremely effective
+10/3/26 17:42,10/3/26,3:00:00 PM,4:55:00 PM,Studying,6,4,150,9min,9,8,Study place (EIEP Lounge),Quiet,6-10 people,"Very little – brief interaction, such as saying hello or asking a quick question",5.5,80,Iced latte,"Focus app, Timer",5- Extremely effective
+10/3/26 23:26,10/3/26,10:30:00 PM,11:00:00 PM,Studying,8,2,30,7,3,9,Home,Quiet,1-2 people,Some,6.5,100,None,"Phone in another room, Focus app",5- Extremely effective
+10/4/26 02:55,10/3/26,11:45:00 PM,1:30:00 AM,Studying,2,1,120,7,18,6,Home,Very Quiet,Alone,None – no interaction,270 min,225,None,Background Music,3- Moderately effective
+10/4/26 12:42,10/4/26,11:30:00 AM,12:20:00 PM,Reading,8,4,45,14,4,9,Library,Quiet,More than 10 people,"Very little – brief interaction, such as saying hello or asking a quick question",8,90,Coffee,Background Music,4- Very effective
+10/4/26 14:40,10/4/26,11:00:00 AM,1:15:00 PM,Homework/Assignments,6,7,2 hours,0,0,10,Home,Very Quiet,1-2 people,None – no interaction,7.5,95,Coffee,"Phone in another room, Focus app",4- Very effective
+10/4/26 23:26,10/4/26,7:00:00 PM,9:40:00 AM,Studying,4,4,180,8,26,7,Home,Quiet,Alone,None – no interaction,9,,Tea,Timer,4- Very effective
+10/6/26 15:09,10/6/26,12:45:00 PM,1:20:00 PM,Studying,6,4,30,2,13,6,Home,Quiet,1-2 people,None – no interaction,6.0 hrs,400,Coffee,Timer,3- Moderately effective
+10/6/26 23:08,3/14/01,9:45:00 PM,10:55:00 PM,Reading,7,4,90,5,12,6,cafe,Moderate,More than 10 people,"Very little – brief interaction, such as saying hello or asking a quick question",7.5,320,Tea,Background Music,4- Very effective
+10/7/26 02:57,10/6/26,9:00:00 PM,12:25:00 AM,Studying,8,8,180,6,27+,7,Library,Quiet,6-10 people,"Very little – brief interaction, such as saying hello or asking a quick question",6,215,None,"Background Music, Timer",5- Extremely effective
+10/7/26 15:00,10/7/26,10:30:00 AM,1:00:00 PM,Homework/Assignments,6,4,150,14,11,8,Study place (EIEP Lounge),Quiet,More than 10 people,None – no interaction,7.5,60 minutes,None,"Phone in another room, Focus app",4- Very effective
+10/8/26 10:57,10/8/26,9:15:00 AM,10:20:00 AM,Studying,8,9,90,5,9,7,Cafe,Moderate,More than 10 people,Some,8,60,Coffee,None,3- Moderately effective
+10/8/26 18:27,10/8/26,2:00:00 PM,4:00:00 PM,Homework/Assignments,4,5,120,3,33,4,Home,Moderate,Alone,"Very little – brief interaction, such as saying hello or asking a quick question",6.5,idk,None,None,3- Moderately effective
+10/8/26 19:32,10/8/26,3:00:00 PM,4:00:00 PM,Reading,5,7,90,8,10,6,Home,Moderate,Alone,None – no interaction,6,205,None,None,4- Very effective
+10/8/26 21:38,10/8/26,4:00:00 PM,5:40:00 PM,Job assessments,5,7,90,3,21,6,Home ,Quiet,Alone,None – no interaction,5.5,185,None,"Background Music, Noise cancelling headphones",3- Moderately effective
+10/8/26 21:51,10/8/26,7:30:00 PM,8:45:00 PM,Studying,6,6,90,7,7,5,Home,Very Quiet,3-5 people,None – no interaction,7.5,190,None,"Background Music, Noise cancelling headphones",3- Moderately effective
+10/8/26 23:30,10/8/26,8:00:00 PM,9:20:00 PM,Reading,8,4,90,22,4,8,Library ,Very Quiet,6-10 people,None – no interaction,6,165,None,Phone in another room,5- Extremely effective
+10/9/26 16:04,10/9/26,10:30:00 AM,2:00:00 PM,Studying,6,5,150 min,6,28,8,Home,Very Quiet,Alone,None – no interaction,7.5,155,Coffee,Lofi playlist,4- Very effective
+10/9/26 17:12,10/9/26,2:30:00 PM,5:05:00 PM,Studying,5,5,150,5,36,5,Library,Quiet,6-10 people,None – no interaction,6,280,Tea,Background Music,3- Moderately effective
+10/9/26 20:33,10/9/26,3:00:00 PM,4:50:00 PM,Homework/Assignments,7,10,90,4,28,5,Home,Quiet,1-2 people,"Very little – brief interaction, such as saying hello or asking a quick question",6.5,90,None,Phone in another room,4- Very effective
+10/9/26 22:15,10/9/26,6:00:00 PM,7:05:00 PM,Studying,7,7,90,3,12,7,Library ,Very Quiet,Alone,None – no interaction,6,130,Coffee,None,4- Very effective
+10/10/26 12:35,10/10/26,8:30:00 AM,9:50:00 AM,Homework/Assignments,4,4,120,6,13,5,Quiet lounge area,Very Quiet,Alone,None – no interaction,8,210,None,Noise cancelling headphones,3- Moderately effective
