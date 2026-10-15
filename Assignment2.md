@@ -35,21 +35,30 @@ Looking back at the dataset, we found a few things worth fixing before analysis.
 
 One real limitation we're keeping as-is: our form only captures the time of the first distraction, not every distraction in a session, so anything involving distraction patterns or clustering is out of scope for this round.
 
-## Task 2: Prepare the data
+## Task 2: Data Preparation
 
-All transformations are in 'notebooks/Data_Cleaning.ipynb', which turns the raw form export into 'data/cleaned/'cleaned_data.csv. Re-running it from the top reproduces the cleaned file.
+All transformations are in [`notebooks/Task2_DataCleaning.ipynb`](notebooks/Task2_DataCleaning.ipynb), which turns the raw Google Form export (`data/raw/form_responses.csv`) into `data/cleaned/cleaned_data.csv`. Running the notebook from top to bottom reproduces the cleaned file.
 
-- **Standardized messy free-text numbers.** Planned duration, time to first distraction, sleep and phone screen time came in mixed formats ("90min", "3 hours", "480", "Around 30"). They are now plain numbers in one unit (minutes, or hours for sleep). Invalid text like "Option 1" was marked missing.
-- **Fixed dates and times.** A typed date of `12/9/2000` was clearly wrong, so we used the form's auto-logged timestamp for the session date. Start and end times were converted to 24-hour format.
-- **Added `Total_Duration_Minutes`.** It is computed from start and end time and handles sessions that cross midnight. Sessions over 5 hours are flagged for review instead of silently changed.
-- **Grouped categorical answers.** Task type, location, noise level and caffeine were mapped to the options on the form, with anything else grouped as "Other". This keeps the categories usable for comparison.
-- **One-hot encoded focus strategies.** People could pick several strategies per session, so each strategy became its own 0/1 column.
-- **Filled the remaining missing values with the median and added `_imputed` flags.** We avoided 0 because it would be a false value. The flags let us exclude those rows from an analysis such as sleep vs. focus. Real zeros, such as no distractions, were left alone.
+- **Renamed columns.** Long form questions became short names (e.g. `Sleep_Hours`, `Focus_Rating`).
+- **Parsed messy free-text numbers.** Planned duration, time to first distraction, sleep and phone screen time came in mixed formats ("90min", "3 hours", "480", "Around 30"). A small parser converts them to one unit (minutes, or hours for sleep). Invalid entries like "Option 1" are marked missing instead of being misread as numbers.
+- **Fixed dates and times.** A typed date of `12/9/2000` was clearly wrong, so the form's auto-logged timestamp is used as the session date. Start and end times were converted to 24-hour format.
+- **Added `Total_Duration_Minutes`.** Computed from start and end time, with midnight crossing handled. Sessions over 5 hours get `Duration_Flag_Long` for review instead of being changed silently.
+- **Standardized categories.** Task type, location, noise level and caffeine were mapped to the options on the form, and anything else became "Other". "Meetings" and "Meeting" were merged.
+- **One-hot encoded focus strategies.** People could choose several strategies per session, so each strategy became its own 0/1 column.
+- **Extracted effectiveness.** The number was pulled from labels like "3- Moderately effective".
+- **Filled missing values and flagged them.** Sleep was filled with 7 h, screen time with 0, and planned duration with the median. Missing categorical answers became "None". `_imputed` columns mark filled values so they can be excluded from analyses such as sleep vs. focus. Real zeros, such as no distractions, were left alone.
 
+## Task 3: Exploratory Data Analysis
 
-## Task 3: Explore the data
+The exploration is in [`notebooks/Task3_EDA.ipynb`](notebooks/Task3_EDA.ipynb), which uses `data/cleaned/cleaned_data.csv`.
 
-_To be added._
+- **Group sizes are uneven.** Only 3 sessions were "Noisy" and 7 were at a café, so those groups are too small to compare reliably. "Noisy" was left out of the noise plot. "Other" location (22 sessions) mixes offices, campus and transit.
+- **Noise vs. distractions (Fig 1).** Quieter did not mean fewer distractions. "Quiet" had the lowest median (7.5), and "Very Quiet" was higher (12.5). Noise alone doesn't explain distractions.
+- **Focus by location (Fig 2).** The library had the highest mean focus (7.4) and the café the lowest (5.7). A crosstab showed that location and noise overlap: every café session was Moderate or Noisy, and the library was mostly Quiet or Very Quiet. We can't separate their effects, so we now treat them together as "environment".
+- **Sleep vs. focus (Fig 3).** There was no clear relationship (Spearman ≈ 0.11). Location, shown by color, separated focus more than sleep did, so sleep is now a lower-priority question.
+- **Planned vs. recorded duration (Fig 4).** This was a data check. Six sessions show 5–15 hour lengths (e.g. 21:00 → 09:25), which look like AM/PM entry errors. They are excluded from any duration analysis.
+- **Collection caveats.** All ratings are self-reported by different people on their own scales, and some values are imputed. Small differences between groups shouldn't be over-read.
+
 
 ## Task 4: Implement visualization alternatives
 
