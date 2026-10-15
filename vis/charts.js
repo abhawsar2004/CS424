@@ -1,54 +1,30 @@
-// using the raw csv for now, switch to the cleaned one when task 2 is done
-const DATA_URL = "../data/raw/form_responses.csv";
+// cleaned data from the task 2 notebook
+const DATA_URL = "../data/cleaned_data.csv";
 
-// the form questions are super long so give them short names
-const SHORT_NAMES = {
-  "What time did the session start?": "start_time",
-  "What type of task were you doing?": "task_type",
-  "How interesting was the task?": "interest",
-  "How difficult was the task?": "difficulty",
-  "How long did you plan to work/study? Enter the number of minutes. Example: 120": "planned",
-  "How many minutes after starting the session did you experience your first distraction? Enter a whole number. If no distraction occurred enter 0": "first_distraction",
-  "How many distractions occurred? (Whole Number)": "distractions",
-  "How focused were you during the session?": "focus",
-  "Where did you study/work?": "location",
-  "How would you describe the noise level during this session?": "noise",
-  "How many other people were around you during this session?": "people",
-};
-
-// people typed stuff like "90min", "3 hours", "Around 30" so pull the number out
-function toMinutes(text) {
-  const match = String(text).match(/[\d.]+/);
-  if (!match) return null;
-  const num = parseFloat(match[0]);
-  return /hour/i.test(text) ? num * 60 : num;
-}
-
-// "5:30:00 AM" -> 5.5
+// "08:30:00" -> 8.5
 function toHourOfDay(text) {
-  const match = String(text).match(/(\d+):(\d+):\d+\s*(AM|PM)/i);
-  if (!match) return null;
-  let hour = parseInt(match[1]) % 12;
-  if (match[3].toUpperCase() === "PM") hour += 12;
-  return hour + parseInt(match[2]) / 60;
+  const [h, m] = String(text).split(":").map(Number);
+  return h + m / 60;
 }
 
+// rename the cleaned columns to the short names the charts already use
 function shorten(row, i) {
-  const out = { session: "R" + (i + 1) };
-  for (const key in row) {
-    const name = SHORT_NAMES[key.trim()];
-    if (name) out[name] = row[key].trim();
-  }
-  // "20+" isn't a number so just take the 20 for now
-  out.distractions = parseInt(out.distractions);
-  out.focus = +out.focus;
-  out.planned = toMinutes(out.planned);
-  out.first_distraction = toMinutes(out.first_distraction);
+  const out = {
+    session: "S" + (i + 1),
+    start_time: row.Start_Time.slice(0, 5),
+    task_type: row.Task_Type,
+    planned: +row.Planned_Duration,
+    planned_imputed: row.Planned_Duration_imputed === "True",
+    first_distraction: +row.Time_to_First_Distraction,
+    distractions: +row.Num_Distractions,
+    focus: +row.Focus_Rating,
+    location: row.Location,
+    noise: row.Noise_Level,
+    people: row.People_Present,
+  };
   // 0 distractions means they never got distracted, not distracted at minute 0
   out.no_distraction = out.distractions === 0;
-  out.start_hour = toHourOfDay(out.start_time);
-  // someone wrote "Meetings" instead of "Meeting"
-  if (out.task_type === "Meetings") out.task_type = "Meeting";
+  out.start_hour = toHourOfDay(row.Start_Time);
   return out;
 }
 
@@ -75,7 +51,7 @@ loadCsv().then((rows) => {
       {
         name: "noisePick",
         value: "All",
-        bind: { input: "select", options: ["All", "Very Quiet", "Quiet", "Moderate"], name: "Noise level: " },
+        bind: { input: "select", options: ["All", "Very Quiet", "Quiet", "Moderate", "Noisy"], name: "Noise level: " },
       },
     ],
     transform: [{ filter: "noisePick == 'All' || datum.noise == noisePick" }],
@@ -87,9 +63,10 @@ loadCsv().then((rows) => {
       {
         title: "Sessions over the day (drag to select a time range)",
         width: 700,
-        height: { step: 18 },
+        // 80 sessions now so the rows have to be thinner
+        height: { step: 8 },
         encoding: {
-          y: { field: "session", type: "nominal", scale: { domain: sessionOrder }, title: "Session (sorted by start time)" },
+          y: { field: "session", type: "nominal", scale: { domain: sessionOrder }, axis: { labels: false, ticks: false }, title: "Sessions (sorted by start time)" },
           x: {
             field: "start_hour",
             type: "quantitative",
@@ -109,11 +86,11 @@ loadCsv().then((rows) => {
           {
             // the drag selection lives here, the other charts read it
             params: [{ name: "timeBrush", select: { type: "interval", encodings: ["x"] } }],
-            mark: { type: "rule", strokeWidth: 8, color: "#ddd" },
+            mark: { type: "rule", strokeWidth: 5, color: "#ddd" },
             encoding: { x2: { field: "plan_end" } },
           },
           {
-            mark: { type: "rule", strokeWidth: 8 },
+            mark: { type: "rule", strokeWidth: 5 },
             encoding: {
               x2: { field: "distraction_at" },
               color: { field: "focus", type: "quantitative", title: "Focus (1-10)", scale: { scheme: "blues" } },

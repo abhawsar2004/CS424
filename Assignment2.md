@@ -18,7 +18,8 @@ Opening `index.html` by double-clicking it won't work, because the browser block
 
 What's where:
 
-- `data/raw/form_responses.csv`: the original responses from our Google Form, not edited.
+- `data/form_responses.csv`: the original responses from our Google Form, not edited.
+- `data/cleaned_data.csv`: the cleaned data from `notebooks/Task2_DataCleaning.ipynb`. The charts use this file.
 - `vis/index.html` and `vis/charts.js`: the visualization code.
 - `vis/screenshots/`: screenshots of the charts at different stages.
 - [`Assignment2.md`](Assignment2.md): the Assignment 2 writeup, organized by Tasks 1-7.
