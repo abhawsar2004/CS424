@@ -38,7 +38,7 @@ One real limitation we're keeping as-is: our form only captures the time of the 
 
 ## Task 2: Data Preparation
 
-All transformations are in [`notebooks/Task2_DataCleaning.ipynb`](notebooks/Task2_DataCleaning.ipynb), which turns the raw Google Form export (`data/raw/form_responses.csv`) into `data/cleaned/cleaned_data.csv`. Running the notebook from top to bottom reproduces the cleaned file.
+All transformations are in [`notebooks/Task2_DataCleaning.ipynb`](notebooks/Task2_DataCleaning.ipynb), which turns the raw Google Form export (`data/form_responses.csv`) into `data/cleaned_data.csv`. Running the notebook from top to bottom reproduces the cleaned file.
 
 - **Renamed columns.** Long form questions became short names (e.g. `Sleep_Hours`, `Focus_Rating`).
 - **Parsed messy free-text numbers.** Planned duration, time to first distraction, sleep and phone screen time came in mixed formats ("90min", "3 hours", "480", "Around 30"). A small parser converts them to one unit (minutes, or hours for sleep). Invalid entries like "Option 1" are marked missing instead of being misread as numbers.
