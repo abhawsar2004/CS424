@@ -93,8 +93,52 @@ One thing we're still not sure about is whether people will figure out that they
 
 ## Task 6: Iterate and refine
 
-_To be added._
+We picked the linked page from Task 5 as our strongest direction, because it covers our questions in one place and the charts work together. Once we switched to the cleaned data (80 sessions), two of the three charts stopped working well, so those are the ones we changed. We left the heatmap alone because it actually got better with more data.
+
+### Iteration 1: Fixing the location chart so you can see every session
+
+<img src="vis/screenshots/chart1_location.png" width="700" alt="Before: location chart with circles on top of each other" />
+
+**The problem.** Every session was one circle at its focus rating, so if two sessions at the same place had the same rating, the circles landed right on top of each other. With 80 sessions this got really bad. You could only see 25 circles, and Home's 34 sessions looked like 7. The whole point of this chart was to show every session instead of an average, and it wasn't doing that anymore. The colors were bad too. Distractions went from 0 to 50, and that one session with 50 made almost every other circle look the same light blue.
+
+**What we changed.** Now sessions with the same place and focus rating stack on top of each other, so every session gets its own dot. This is pretty much what we drew in our Assignment 1 sketch, where the circles were side by side. We also changed the colors from a 0 to 50 scale to just three groups: 0-3, 4-12, and 13+ distractions. We picked those cutoffs so each group has about the same number of sessions (23, 25, and 32).
+
+<img src="vis/screenshots/iter1_location_stacked.png" width="700" alt="After: stacked dots in three distraction groups" />
+
+**Why.** Now you can actually count how many sessions each place has and see where they bunch up. Home is mostly between 5 and 7, and the library has more sessions at 7 and up. The three color groups also show something the old colors hid. Sessions rated 9 or 10 are mostly light (10 out of 14 had 0-3 distractions), and sessions rated 5 or lower are mostly dark (14 out of 23 had 13 or more). The downside is the rows got taller, because the tallest stack (Home at focus 6, with 10 sessions) sets the height for every row.
+
+### Iteration 2: Turning the timeline into a time of day chart
+
+<img src="vis/screenshots/chart3_timeline.png" width="700" alt="Before: timeline with one bar per session" />
+
+**The problem.** The timeline was supposed to show whether time of day changes how fast people get distracted, but it didn't really show that. Every session was a thin bar, and with 80 sessions the rows got so thin we had to hide the labels. The part we actually cared about, the time until the first distraction, was usually only a few pixels long, because 50 of the 77 distracted sessions got distracted in the first 10 minutes. Two late sessions also got cut off at midnight. Most of the space went to the grey planned-time bars, which weren't even part of our question. And 20 of those planned times were filled in with the median during cleaning, so a lot of the grey was a guess anyway.
+
+**What we changed.** We changed what the chart shows. Now each session is a dot. Across the bottom is when it started, and going up is how many minutes until the first distraction. So the thing we care about gets its own axis instead of being a tiny piece of a bar. We also added a red line for the median of each 3-hour block, so you can see the overall trend through all the dots. The first time we added the line, it had a big spike around 4 AM because that block only had one session, so now it only shows blocks with at least 3 sessions. The drag selection is still on this chart, so it still controls the other two.
+
+<img src="vis/screenshots/iter2_time_of_day.png" width="700" alt="After: dots for minutes to first distraction by start time, with a median line" />
+
+**Why.** Now you can see the answer right on the chart. The median line is pretty flat, around 6 to 10 minutes all day, so time of day doesn't seem to change much when the first distraction happens. You can also easily spot the few people who lasted 30 to 45 minutes. We did lose the planned time vs. first distraction comparison, which was the one thing the old timeline was good at. But that wasn't one of our four questions, and a lot of those planned times were guesses, so we decided it was worth it. The 3 sessions with no distractions aren't on this chart because they don't have a time, but they still show up in the location chart.
 
 ## Task 7: Current design
 
-_To be added._
+Our current design is one page with three linked charts and a dropdown that filters all of them by noise level. The steps to run it are in the [README](README.md).
+
+<img src="vis/screenshots/final_linked_all.png" width="700" alt="Current design with nothing selected" />
+
+**What it's for.** The top chart is for whether time of day changes how fast the first distraction comes. The middle chart is for how focus and distractions change by location. The heatmap is for whether some types of tasks get interrupted sooner. The noise dropdown covers our noise question without needing a fourth chart. The main thing you do with the page is pick a group of sessions, either a time of day by dragging on the top chart or a noise level from the dropdown, and then see how that group looks by location and task type.
+
+<img src="vis/screenshots/final_evening_selected.png" width="700" alt="Current design with about 3 PM to 10 PM selected" />
+
+**Main design decisions.** We kept every session as its own dot in the top two charts, because our groups are really uneven and an average would hide that. The heatmap is the only chart that counts sessions, since it's comparing six task types at once. We used three distraction groups instead of a smooth color scale, and we only draw the median line where there are at least 3 sessions, so one session doesn't look like a pattern. The axes always keep every location and task type, even when a filter leaves them empty, so the charts don't jump around.
+
+**How it's different from Assignment 1 and our earlier versions.** The location chart ended up close to our hand sketch from Assignment 1, but we only got there after our first coded version didn't work with the real data. The time chart changed the most. It started as a timeline of sessions over the day and turned into a scatterplot that answers one specific question. The heatmap has task type on the rows instead of difficulty. And in Assignment 1 we weren't planning to link the charts at all.
+
+**What works well.** The heatmap shows a clear pattern, which is that most first distractions happen in the first 10 minutes for every task type. The location chart now shows every session, and you can easily see that high focus goes with fewer distractions. Dragging on the top chart is quick and the other two charts update right away.
+
+**What we're still not sure about.**
+- Whether people will figure out they can drag on the top chart. Right now there's just one line of text at the top telling them.
+- Whether stacking the dots makes sense, or whether people will think a taller stack means a higher value.
+- Whether having three color scales on one page is confusing, especially since two of them are blue.
+- Whether people will understand the red median line without it being explained.
+
+**What we want to test in Assignment 3.** We want to give people a few tasks, like "find the time of day when people get distracted the fastest" or "which location has the most sessions with 13+ distractions," and see if they can do them without help. That would tell us if people find the drag selection and if they read the stacked dots and colors the right way. We'd also like to compare the linked page with the three charts shown separately, to see if linking them actually helps or just makes it more complicated.

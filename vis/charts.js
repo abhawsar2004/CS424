@@ -29,20 +29,29 @@ function shorten(row, i) {
 }
 
 loadCsv().then((rows) => {
-  const data = rows.map(shorten).map((d) => ({
-    ...d,
-    plan_end: Math.min(d.start_hour + d.planned / 60, 24),
-    distraction_at: d.no_distraction ? null : d.start_hour + d.first_distraction / 60,
-  }));
+  const data = rows.map(shorten);
+
+  // task 6 iteration 1: stack sessions that have the same place + focus so none are hidden
+  const seen = {};
+  data.forEach((d) => {
+    const key = d.location + "|" + d.focus;
+    d.stack = seen[key] || 0;
+    seen[key] = d.stack + 1;
+    // 3 groups instead of a 0-50 color scale, one 50-distraction session was washing everything out
+    d.distraction_group = d.distractions <= 3 ? "0-3" : d.distractions <= 12 ? "4-12" : "13+";
+  });
+  const maxStack = Math.max(...data.map((d) => d.stack));
+
+  // task 6 iteration 2: 3 hour blocks for the median line on the time of day chart
+  data.forEach((d) => (d.time_block = Math.floor(d.start_hour / 3) * 3 + 1.5));
 
   // fixed lists for the axes so rows don't jump around when you filter
   const taskTypes = [...new Set(data.map((d) => d.task_type))].sort();
-  const sessionOrder = [...data].sort((a, b) => a.start_hour - b.start_hour).map((d) => d.session);
   const placeCounts = {};
   data.forEach((d) => (placeCounts[d.location] = (placeCounts[d.location] || 0) + 1));
-  const places = Object.keys(placeCounts).sort((a, b) => placeCounts[a] - placeCounts[b]);
+  const places = Object.keys(placeCounts).sort((a, b) => placeCounts[b] - placeCounts[a]);
 
-  // all three charts are in one spec now so they can talk to each other
+  // all three charts are in one spec so they can talk to each other
   vegaEmbed("#vis", {
     $schema: "https://vega.github.io/schema/vega-lite/v5.json",
     data: { values: data },
@@ -55,60 +64,74 @@ loadCsv().then((rows) => {
       },
     ],
     transform: [{ filter: "noisePick == 'All' || datum.noise == noisePick" }],
-    resolve: { scale: { color: "independent" } },
+    resolve: { scale: { color: "independent", yOffset: "independent" } },
     spacing: 40,
     vconcat: [
-      // timeline over the day. drag across it to pick a time range
-      // grey bar = how long they planned to work, colored part = time until first distraction
+      // time of day vs how fast the first distraction came. drag across it to pick a time range
+      // the line is the median for each 3 hour block
       {
-        title: "Sessions over the day (drag to select a time range)",
+        title: "How soon the first distraction came, by time of day (drag to select)",
         width: 700,
-        // 80 sessions now so the rows have to be thinner
-        height: { step: 8 },
+        height: 260,
+        transform: [{ filter: "!datum.no_distraction" }],
         encoding: {
-          y: { field: "session", type: "nominal", scale: { domain: sessionOrder }, axis: { labels: false, ticks: false }, title: "Sessions (sorted by start time)" },
           x: {
             field: "start_hour",
             type: "quantitative",
             scale: { domain: [0, 24] },
-            axis: { values: [0, 3, 6, 9, 12, 15, 18, 21, 24], title: "Time of day (hour, 24h clock)" },
+            axis: { values: [0, 3, 6, 9, 12, 15, 18, 21, 24], title: "Session start time (hour, 24h clock)" },
           },
-          tooltip: [
-            { field: "session" },
-            { field: "task_type" },
-            { field: "start_time", title: "start" },
-            { field: "planned", title: "planned (min)" },
-            { field: "first_distraction", title: "first distraction (min)" },
-            { field: "focus" },
-          ],
         },
         layer: [
           {
             // the drag selection lives here, the other charts read it
             params: [{ name: "timeBrush", select: { type: "interval", encodings: ["x"] } }],
-            mark: { type: "rule", strokeWidth: 5, color: "#ddd" },
-            encoding: { x2: { field: "plan_end" } },
+            mark: { type: "circle", size: 70, opacity: 0.8 },
+            encoding: {
+              y: { field: "first_distraction", type: "quantitative", scale: { domain: [0, 50] }, title: "Minutes to first distraction" },
+              color: { field: "focus", type: "quantitative", title: "Focus (1-10)", scale: { scheme: "blues", domain: [1, 10] } },
+              tooltip: [
+                { field: "session" },
+                { field: "task_type" },
+                { field: "start_time", title: "start" },
+                { field: "first_distraction", title: "first distraction (min)" },
+                { field: "focus" },
+              ],
+            },
           },
           {
-            mark: { type: "rule", strokeWidth: 5 },
+            // only draw the median for blocks with at least 3 sessions, one session isn't a pattern
+            transform: [
+              { joinaggregate: [{ op: "count", as: "block_n" }], groupby: ["time_block"] },
+              { filter: "datum.block_n >= 3" },
+            ],
+            mark: { type: "line", color: "#e45756", strokeWidth: 2, point: { color: "#e45756" } },
             encoding: {
-              x2: { field: "distraction_at" },
-              color: { field: "focus", type: "quantitative", title: "Focus (1-10)", scale: { scheme: "blues" } },
+              x: { field: "time_block", type: "quantitative" },
+              y: { aggregate: "median", field: "first_distraction", type: "quantitative" },
+              tooltip: [{ aggregate: "median", field: "first_distraction", title: "median (min)" }, { aggregate: "count", title: "sessions" }],
             },
           },
         ],
       },
 
-      // one circle per session, grouped by location
+      // one dot per session, grouped by location, same place + focus stack up instead of overlapping
       // sessions outside the selected time range fade out
       {
-        title: "Focus by location",
+        title: "Focus by location (one dot per session)",
         width: 700,
-        mark: { type: "circle", size: 150 },
+        height: { step: 14 + maxStack * 8 },
+        mark: { type: "circle", size: 60 },
         encoding: {
           y: { field: "location", type: "nominal", scale: { domain: places }, title: null },
-          x: { field: "focus", type: "quantitative", scale: { domain: [0, 10] }, title: "Focus rating (1-10)" },
-          color: { field: "distractions", type: "quantitative", title: "Distractions" },
+          yOffset: { field: "stack", type: "quantitative", scale: { domain: [-1, maxStack + 1], reverse: true } },
+          x: { field: "focus", type: "quantitative", scale: { domain: [0.5, 10.5] }, axis: { values: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] }, title: "Focus rating (1-10)" },
+          color: {
+            field: "distraction_group",
+            type: "ordinal",
+            title: "Distractions",
+            scale: { domain: ["0-3", "4-12", "13+"], range: ["#c6dbef", "#6baed6", "#08519c"] },
+          },
           opacity: { condition: { param: "timeBrush", value: 1 }, value: 0.12 },
           tooltip: [{ field: "session" }, { field: "location" }, { field: "focus" }, { field: "distractions" }, { field: "noise" }],
         },
