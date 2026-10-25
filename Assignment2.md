@@ -27,7 +27,7 @@ All transformations are in [`notebooks/Task2_DataCleaning.ipynb`](notebooks/Task
 
 ## Task 3: Exploratory Data Analysis
 
-The exploration is in [`notebooks/Task3_EDA.ipynb`](notebooks/Task3_EDA.ipynb), which uses `data/cleaned/cleaned_data.csv`.
+The exploration is in [`notebooks/Task3_EDA.ipynb`](notebooks/Task3_EDA.ipynb), which uses `data/cleaned_data.csv`.
 
 - **Group sizes are uneven.** Only 3 sessions were "Noisy" and 7 were at a café, so those groups are too small to compare reliably. "Noisy" was left out of the noise plot. "Other" location (22 sessions) mixes offices, campus and transit.
 - **Noise vs. distractions (Fig 1).** Quieter did not mean fewer distractions. "Quiet" had the lowest median (7.5), and "Very Quiet" was higher (12.5). Noise alone doesn't explain distractions.
