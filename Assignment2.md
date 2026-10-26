@@ -111,7 +111,7 @@ Instead of making changes like the font size, color, repositing legends. I made 
 
 **Figure 2:Focus Ratings by Study Location (Jittering)**
 
-<img src="vis/screenshots/focus_ratings_by_study_locations" width="700" alt="After: Circle showing each session" />
+<img src="vis/screenshots/focus_ratings_by_location.png" width="700" alt="After: Circle showing each session" />
 
 
 **Why.** Now you can actually count how many sessions each place has and see where they bunch up. Home is mostly between 5 and 7, and the library has more sessions at 7 and up. The three color groups also show something the old colors hid. Sessions rated 9 or 10 are mostly light (10 out of 14 had 0-3 distractions), and sessions rated 5 or lower are mostly dark (14 out of 23 had 13 or more). The downside is the rows got taller, because the tallest stack (Home at focus 6, with 10 sessions) sets the height for every row.
