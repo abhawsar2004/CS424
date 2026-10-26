@@ -94,21 +94,25 @@ One thing we're still not sure about is whether people will figure out that they
 ## Task 6: Visualization Refinement and Design Iterations
 **Objective:** The primary goal of this design phase was to transform the FocusTrace dashboard from simple chart into an intuitive, multi-layered exploratory tool. We wanted to uncover the complex, three-way relationship between where a person studies, the background noise level of that environment, and their overall focus rating. 
 
-Instead of making changes like the font size, color, repositing legends. I made a structural change. I moved from a single, cluttered chart to a connected two-part dashboard. By pairing a session-level dot plot (to see every single study session) with an aggregated heatmap (to see the big picture), users can spot overall trends instantly without losing the ability to dig into individual days. 
+Instead of making changes like the font size, color, repositing legends. I made a structural change. We moved from a single, cluttered chart to a connected two-part dashboard. By pairing a session-level dot plot (to see every single study session) with an aggregated heatmap (to see the big picture), users can spot overall trends instantly without losing the ability to dig into individual days. 
 
 
 ### 2)	Iteration1: Redesigning the Focus by Location Dot Plot
+
 **Problem Identified:** In the original dot plot (Figure 1), the data points sat perfectly on top of one another along rigid vertical gridlines. This created a major visual like; a single isolated study session looked the same as ten different sessions stacked directly underneath it. For example, under the Library Category, there appears to be just a single point sitting at a focus rating of 9, completely hiding whether that rating happened once or dozen times. The true volume and density of data were completely hidden from the user.
 
 **Figure 1: Focus Ratings By Locations**
 
-<img src="vis/screenshots/chart1_location.png" width="700" alt="Before: location chart with circles on top of each other" />
+<img src="vis/screenshots/focus_by_location.png" width="700" alt="Before: Circles on top of each other" />
 
-**The problem.** Every session was one circle at its focus rating, so if two sessions at the same place had the same rating, the circles landed right on top of each other. With 80 sessions this got really bad. You could only see 25 circles, and Home's 34 sessions looked like 7. The whole point of this chart was to show every session instead of an average, and it wasn't doing that anymore. The colors were bad too. Distractions went from 0 to 50, and that one session with 50 made almost every other circle look the same light blue.
 
-**What we changed.** Now sessions with the same place and focus rating stack on top of each other, so every session gets its own dot. This is pretty much what we drew in our Assignment 1 sketch, where the circles were side by side. We also changed the colors from a 0 to 50 scale to just three groups: 0-3, 4-12, and 13+ distractions. We picked those cutoffs so each group has about the same number of sessions (23, 25, and 32).
 
-<img src="vis/screenshots/iter1_location_stacked.png" width="700" alt="After: stacked dots in three distraction groups" />
+**What we changed.** To fix this clutter without compromising the clean categories on the horizontal axis, We implemented categorial horizontal jittering (Figure 2). This technique injects a controlled amount of random spacing to shake the dots lose from their rigid tracks while strictly keeping them within their location columns.
+
+**Figure 2:Focus Ratings by Study Location (Jittering)**
+
+<img src="vis/screenshots/focus_ratings_by_study_locations" width="700" alt="After: Circle showing each session" />
+
 
 **Why.** Now you can actually count how many sessions each place has and see where they bunch up. Home is mostly between 5 and 7, and the library has more sessions at 7 and up. The three color groups also show something the old colors hid. Sessions rated 9 or 10 are mostly light (10 out of 14 had 0-3 distractions), and sessions rated 5 or lower are mostly dark (14 out of 23 had 13 or more). The downside is the rows got taller, because the tallest stack (Home at focus 6, with 10 sessions) sets the height for every row.
 
