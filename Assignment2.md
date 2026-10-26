@@ -91,11 +91,16 @@ In Task 4 we said the heatmap wasn't great on its own because most task types on
 
 One thing we're still not sure about is whether people will figure out that they can drag on the timeline. Right now there's just a line of text at the top telling them. That's something we want to check in Assignment 3.
 
-## Task 6: Iterate and refine
+## Task 6: Visualization Refinement and Design Iterations
+**Objective:** The primary goal of this design phase was to transform the FocusTrace dashboard from simple chart into an intuitive, multi-layered exploratory tool. We wanted to uncover the complex, three-way relationship between where a person studies, the background noise level of that environment, and their overall focus rating. 
 
-We picked the linked page from Task 5 as our strongest direction, because it covers our questions in one place and the charts work together. Once we switched to the cleaned data (80 sessions), two of the three charts stopped working well, so those are the ones we changed. We left the heatmap alone because it actually got better with more data.
+Instead of making changes like the font size, color, repositing legends. I made a structural change. I moved from a single, cluttered chart to a connected two-part dashboard. By pairing a session-level dot plot (to see every single study session) with an aggregated heatmap (to see the big picture), users can spot overall trends instantly without losing the ability to dig into individual days. 
 
-### Iteration 1: Fixing the location chart so you can see every session
+
+### 2)	Iteration1: Redesigning the Focus by Location Dot Plot
+**Problem Identified:** In the original dot plot (Figure 1), the data points sat perfectly on top of one another along rigid vertical gridlines. This created a major visual like; a single isolated study session looked the same as ten different sessions stacked directly underneath it. For example, under the Library Category, there appears to be just a single point sitting at a focus rating of 9, completely hiding whether that rating happened once or dozen times. The true volume and density of data were completely hidden from the user.
+
+**Figure 1: Focus Ratings By Locations**
 
 <img src="vis/screenshots/chart1_location.png" width="700" alt="Before: location chart with circles on top of each other" />
 
