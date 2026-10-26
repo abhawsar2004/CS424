@@ -132,10 +132,10 @@ Instead of making changes like the font size, color, repositing legends. I made 
 
 **Evaluation:**
 -**Important Note:** Heatmaps can easily mislead users if a dark, high-scoring cell is based on only one lucky day. To protect data integrity, We implemented a layered text annotation system inside every single title:
--**The Bold Metric:** The exact average focus score is font and center. Example: 7.4.
--**The Sample Size Context:** The total session count (n = X) sits directly underneath the score.
--**Empty Space Handling:** Cells completely lacking data like Café/Very Quiet or Library/Noisy are marked as “No Data (no sessions)” and styled with a neutral gray background to stop users from assuming a trend where no tracking occurred. 
--**Context:** The annotations save the users from making false assumptions. For instance, under Other/Noisy, the focus rating is a low 4.0, but the sub-text immediately flags (n=1). The user instantly knows this was just a single bad session, not a definitive trend, and preventing them from drawing an inaccurate conclusion. 
+  -**The Bold Metric:** The exact average focus score is font and center. Example: 7.4.
+  -**The Sample Size Context:** The total session count (n = X) sits directly underneath the score.
+  -**Empty Space Handling:** Cells completely lacking data like Café/Very Quiet or Library/Noisy are marked as “No Data (no sessions)” and styled with a neutral gray background to stop users from assuming a trend where no tracking occurred. 
+  -**Context:** The annotations save the users from making false assumptions. For instance, under Other/Noisy, the focus rating is a low 4.0, but the sub-text immediately flags (n=1). The user instantly knows this was just a single bad session, not a definitive trend, and preventing them from drawing an inaccurate conclusion. 
 
 **Comparing the Dot Plot and HeatMap**
 
@@ -156,32 +156,32 @@ Instead of making changes like the font size, color, repositing legends. I made 
 <img src="vis/screenshots/focus_ratings_by_location.png" width="49%" /> <img src="vis/screenshots/average_location_heatmap.png" width="49%" />
 
 **What it questions and Tasks it Supports.** This unified setup handles analysis across multiple dimensions, answering specific behavioral questions:
--**The Spreads and Ranges (Micro-View Tasks):** Using the left-hand Jittered Dot Plot, users can pinpoint where individual sessions cluster and spot raw exceptions (such as identifying the rate focus scores under 3 at “Other” locations).
--**The Environmental Cross-References (Macro-View Tasks):** Using the right-hand Location-by-Noise Heatmap, users can instantly judge environmental patterns, answering complex interaction questions like “Does my focus at Home drop significantly when moving from Quiet to Moderate Noise?” (Yes, the plot shows a visible drop from 6.6 to 5.5).
+  -**The Spreads and Ranges (Micro-View Tasks):** Using the left-hand Jittered Dot Plot, users can pinpoint where individual sessions cluster and spot raw exceptions (such as identifying the rate focus scores under 3 at “Other” locations).
+  -**The Environmental Cross-References (Macro-View Tasks):** Using the right-hand Location-by-Noise Heatmap, users can instantly judge environmental patterns, answering complex interaction questions like “Does my focus at Home drop significantly when moving from Quiet to Moderate Noise?” (Yes, the plot shows a visible drop from 6.6 to 5.5).
 
 
 **Main design decisions.**
--**Coordinated Views Layout:** Choosing a side-by-side framework brings the micro (session spread) and macro (averages) worlds into a single, comprehensive window.
--**Aligned Categorical Flow:** The Y-axis categories run in the exact same sequence (Café, Home, Library, Other) on both Visualizations. The alignment prevents users from experiencing visual confusion when moving their eyes horizontally across the dashboard. 
+  -**Coordinated Views Layout:** Choosing a side-by-side framework brings the micro (session spread) and macro (averages) worlds into a single, comprehensive window.
+  -**Aligned Categorical Flow:** The Y-axis categories run in the exact same sequence (Café, Home, Library, Other) on both Visualizations. The alignment prevents users from experiencing visual confusion when moving their eyes horizontally across the dashboard. 
 -**Safe Data Annotations:** Embedding specific sample strings directly into the titles (like showing n=14 for Home/Quiet versus n=1 for Other/Noisy) ensures the viewer can assess the accuracy of each statistical cell. 
 
 
 **How it's different from Assignment 1 and our earlier versions.** 
--**From Isolated to Coordinated:** In the Original sketches, these designs were separate diagrams sitting on isolated pages. The core evolution was bringing them together into a single, interactive space where they communicate with one another.
--**Solving the Density Issue:** The baseline sketch used a standard overlapping dot graph where points stacked perfectly on top of each other. Implementing horizontal random jittering completely updated this design, allowing accurate densities to become visually readable. 
+  -**From Isolated to Coordinated:** In the Original sketches, these designs were separate diagrams sitting on isolated pages. The core evolution was bringing them together into a single, interactive space where they communicate with one another.
+  -**Solving the Density Issue:** The baseline sketch used a standard overlapping dot graph where points stacked perfectly on top of each other. Implementing horizontal random jittering completely updated this design, allowing accurate densities to become visually readable. 
 
 
 **What works well.** 
--**Spotting Trends Quickly:** The sequential color mapping immediately draws attention to high-performance areas like the rich blue 7.8 cell at Library/Very Quiet and alerts the eye to problem areas where focus drops. 
--**Context Control:** The dashboard cleanly highlights gaps in data collection. Labeled neutral spaces directly specify “No data (no sessions)”, showing that no sessions were recorded at Café/Very Quiet parameters without causing user confusion. 
+  -**Spotting Trends Quickly:** The sequential color mapping immediately draws attention to high-performance areas like the rich blue 7.8 cell at Library/Very Quiet and alerts the eye to problem areas where focus drops. 
+  -**Context Control:** The dashboard cleanly highlights gaps in data collection. Labeled neutral spaces directly specify “No data (no sessions)”, showing that no sessions were recorded at Café/Very Quiet parameters without causing user confusion. 
 
 
 **What we're still not sure about.**
--**Colab Interactive Layout Controls:** Because the dashboard is coded inside a Google Colab notebook environment, we are testing the performance limitation of interactive selections (such as using ipwidgets or cross0filtering tools) to determine whether window resizing causes unexpected text or layout clipping.
--**Density vs Specific Filters:** We are analyzing whether displaying all jittered points simultaneously on the left plot remains visible, or if the system should dynamically hide all points except the ones corresponding to the cell a user clicks on the heatmap.
+  -**Colab Interactive Layout Controls:** Because the dashboard is coded inside a Google Colab notebook environment, we are testing the performance limitation of interactive selections (such as using ipwidgets or cross0filtering tools) to determine whether window resizing causes unexpected text or layout clipping.
+  -**Density vs Specific Filters:** We are analyzing whether displaying all jittered points simultaneously on the left plot remains visible, or if the system should dynamically hide all points except the ones corresponding to the cell a user clicks on the heatmap.
 
 
 **What we want to test in Assignment 3.**
--**Interactive Behavior Clarity:** We want to watch test users interact with the dashboard to ensure they realize clicking a specific tile on the heatmap filters the jittered scatter plot.
--**Annotation Visual Balance:** We will measure whether reading the subtext (n=X) labels inside the tiles feels easy and helpful or creates visual fatigue during long analysis sessions. 
+  -**Interactive Behavior Clarity:** We want to watch test users interact with the dashboard to ensure they realize clicking a specific tile on the heatmap filters the jittered scatter plot.
+  -**Annotation Visual Balance:** We will measure whether reading the subtext (n=X) labels inside the tiles feels easy and helpful or creates visual fatigue during long analysis sessions. 
 
