@@ -128,28 +128,60 @@ Instead of making changes like the font size, color, repositing legends. I made 
 
 <img src="vis/screenshots/average_location_heatmap.png" width="700" alt="After: Shows No Data for no session" />
 
-**Why it works:**The macro-trends jump right off on Figure 3. You can clearly track how focus degrades as environments as environments get louder. Look at Home, it starts at a strong average of 6.8 in Very Quiet settings, dips slightly to 6.6 in Quiet and then drops noticeably to 5.5 once noise its Moderate. 
+**Why it works:** The macro-trends jump right off on Figure 3. You can clearly track how focus degrades as environments as environments get louder. Look at Home, it starts at a strong average of 6.8 in Very Quiet settings, dips slightly to 6.6 in Quiet and then drops noticeably to 5.5 once noise its Moderate. 
+
+**Evaluation:**
+***Important Note:*** Heatmaps can easily mislead users if a dark, high-scoring cell is based on only one lucky day. To protect data integrity, We implemented a layered text annotation system inside every single title:
+****a)The Bold Metric:**** The exact average focus score is font and center. Example: 7.4.
+****b)The Sample Size Context:**** The total session count (n = X) sits directly underneath the score.
+****c)Empty Space Handling:**** Cells completely lacking data like Café/Very Quiet or Library/Noisy are marked as “No Data (no sessions)” and styled with a neutral gray background to stop users from assuming a trend where no tracking occurred. 
+****d)Context:**** The annotations save the users from making false assumptions. For instance, under Other/Noisy, the focus rating is a low 4.0, but the sub-text immediately flags (n=1). The user instantly knows this was just a single bad session, not a definitive trend, and preventing them from drawing an inaccurate conclusion. 
+
+**Comparing the Dot Plot and HeatMap**
+
+| Evaluation Dimension | Focus Location Dot Plot (Iteration 1) | Location-by-Noise Heatmap (Iteration 2) |
+| :--- | :--- | :--- |
+| **Data Granularity** | Micro-level (Every individual session is preserved) | Macro-level (Aggregated group statistics and summaries) |
+| **Variables Supported** | 2 Variables: Locations vs Raw Focus Rating | 3 Variables: Location vs Noise Level vs Average Focus |
+| **Visual Strengths** | Great for spotting range, consistency, and outliers | Great for rapid cross-categorial trend identification. |
+| **Annotation Depth** | Simple axis ticks and boundary labels | Deep, explicit cell metrics (Mean and b-count) |
+
+**Questions For Further Evaluation:** 
+***a)Interaction Friction:*** When the users click on the heatmap, do they intuitively understand how and why the dot plot is filtering, or do we need cleaner visual cues? 
+***b)Color Scale Accessibility:*** Does the blue-to-green sequential color bar clearly translate changes in the focus values to all users, including those with colorblindness?
+***c)Visual Clutter Balance:*** Does displaying the (n=X) sample size directly inside the heatmap tiles successfully provide critical context, or does it make the grid feel too crowded and difficult to read? 
 
 ## Task 7: Current design
 
-Our current design is one page with three linked charts and a dropdown that filters all of them by noise level. The steps to run it are in the [README](README.md).
+<img src="vis/screenshots/focus_ratings_by_location.png" width="49%" /> <img src="vis/screenshots/average_location_heatmap.png" width="49%" />
 
-<img src="vis/screenshots/final_linked_all.png" width="700" alt="Current design with nothing selected" />
+**What it questions and Tasks it Supports.** This unified setup handles analysis across multiple dimensions, answering specific behavioral questions:
+***a)The Spreads and Ranges (Micro-View Tasks):*** Using the left-hand Jittered Dot Plot, users can pinpoint where individual sessions cluster and spot raw exceptions (such as identifying the rate focus scores under 3 at “Other” locations).
+***b)The Environmental Cross-References (Macro-View Tasks):*** Using the right-hand Location-by-Noise Heatmap, users can instantly judge environmental patterns, answering complex interaction questions like “Does my focus at Home drop significantly when moving from Quiet to Moderate Noise?” (Yes, the plot shows a visible drop from 6.6 to 5.5).
 
-**What it's for.** The top chart is for whether time of day changes how fast the first distraction comes. The middle chart is for how focus and distractions change by location. The heatmap is for whether some types of tasks get interrupted sooner. The noise dropdown covers our noise question without needing a fourth chart. The main thing you do with the page is pick a group of sessions, either a time of day by dragging on the top chart or a noise level from the dropdown, and then see how that group looks by location and task type.
 
-<img src="vis/screenshots/final_evening_selected.png" width="700" alt="Current design with about 3 PM to 10 PM selected" />
+**Main design decisions.**
+***a)Coordinated Views Layout:*** Choosing a side-by-side framework brings the micro (session spread) and macro (averages) worlds into a single, comprehensive window.
+***b)Aligned Categorical Flow:*** The Y-axis categories run in the exact same sequence (Café, Home, Library, Other) on both Visualizations. The alignment prevents users from experiencing visual confusion when moving their eyes horizontally across the dashboard. 
+***c)Safe Data Annotations:*** Embedding specific sample strings directly into the titles (like showing n=14 for Home/Quiet versus n=1 for Other/Noisy) ensures the viewer can assess the accuracy of each statistical cell. 
 
-**Main design decisions.** We kept every session as its own dot in the top two charts, because our groups are really uneven and an average would hide that. The heatmap is the only chart that counts sessions, since it's comparing six task types at once. We used three distraction groups instead of a smooth color scale, and we only draw the median line where there are at least 3 sessions, so one session doesn't look like a pattern. The axes always keep every location and task type, even when a filter leaves them empty, so the charts don't jump around.
 
-**How it's different from Assignment 1 and our earlier versions.** The location chart ended up close to our hand sketch from Assignment 1, but we only got there after our first coded version didn't work with the real data. The time chart changed the most. It started as a timeline of sessions over the day and turned into a scatterplot that answers one specific question. The heatmap has task type on the rows instead of difficulty. And in Assignment 1 we weren't planning to link the charts at all.
+**How it's different from Assignment 1 and our earlier versions.** 
+***a)From Isolated to Coordinated:*** In the Original sketches, these designs were separate diagrams sitting on isolated pages. The core evolution was bringing them together into a single, interactive space where they communicate with one another.
+***b)Solving the Density Issue:*** The baseline sketch used a standard overlapping dot graph where points stacked perfectly on top of each other. Implementing horizontal random jittering completely updated this design, allowing accurate densities to become visually readable. 
 
-**What works well.** The heatmap shows a clear pattern, which is that most first distractions happen in the first 10 minutes for every task type. The location chart now shows every session, and you can easily see that high focus goes with fewer distractions. Dragging on the top chart is quick and the other two charts update right away.
+
+**What works well.** 
+***a)Spotting Trends Quickly:*** The sequential color mapping immediately draws attention to high-performance areas like the rich blue 7.8 cell at Library/Very Quiet and alerts the eye to problem areas where focus drops. 
+***b)Context Control:*** The dashboard cleanly highlights gaps in data collection. Labeled neutral spaces directly specify “No data (no sessions)”, showing that no sessions were recorded at Café/Very Quiet parameters without causing user confusion. 
+
 
 **What we're still not sure about.**
-- Whether people will figure out they can drag on the top chart. Right now there's just one line of text at the top telling them.
-- Whether stacking the dots makes sense, or whether people will think a taller stack means a higher value.
-- Whether having three color scales on one page is confusing, especially since two of them are blue.
-- Whether people will understand the red median line without it being explained.
+***a)Colab Interactive Layout Controls:*** Because the dashboard is coded inside a Google Colab notebook environment, we are testing the performance limitation of interactive selections (such as using ipwidgets or cross0filtering tools) to determine whether window resizing causes unexpected text or layout clipping.
+***b)Density vs Specific Filters:*** We are analyzing whether displaying all jittered points simultaneously on the left plot remains visible, or if the system should dynamically hide all points except the ones corresponding to the cell a user clicks on the heatmap.
 
-**What we want to test in Assignment 3.** We want to give people a few tasks, like "find the time of day when people get distracted the fastest" or "which location has the most sessions with 13+ distractions," and see if they can do them without help. That would tell us if people find the drag selection and if they read the stacked dots and colors the right way. We'd also like to compare the linked page with the three charts shown separately, to see if linking them actually helps or just makes it more complicated.
+
+**What we want to test in Assignment 3.**
+***a)Interactive Behavior Clarity:*** We want to watch test users interact with the dashboard to ensure they realize clicking a specific tile on the heatmap filters the jittered scatter plot.
+***b)Annotation Visual Balance:*** We will measure whether reading the subtext (n=X) labels inside the tiles feels easy and helpful or creates visual fatigue during long analysis sessions. 
+
