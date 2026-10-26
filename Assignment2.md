@@ -103,7 +103,7 @@ Instead of making changes like the font size, color, repositing legends. I made 
 
 **Figure 1: Focus Ratings By Locations**
 
-<img src="vis/screenshots/focus_by_location.png" width="700" alt="Before: Circles on top of each other" />
+<img src="vis/screenshots/focus_by_locations.png" width="700" alt="Before: Circles on top of each other" />
 
 
 
@@ -114,19 +114,21 @@ Instead of making changes like the font size, color, repositing legends. I made 
 <img src="vis/screenshots/focus_ratings_by_location.png" width="700" alt="After: Circle showing each session" />
 
 
-**Why.** Now you can actually count how many sessions each place has and see where they bunch up. Home is mostly between 5 and 7, and the library has more sessions at 7 and up. The three color groups also show something the old colors hid. Sessions rated 9 or 10 are mostly light (10 out of 14 had 0-3 distractions), and sessions rated 5 or lower are mostly dark (14 out of 23 had 13 or more). The downside is the rows got taller, because the tallest stack (Home at focus 6, with 10 sessions) sets the height for every row.
+**Why it works:** Looking closely at Figure 2, the data changes from rigid pillars into revealing “clouds” of dots. For instance, under Home, you can now clearly see a dense cluster of 8 separate dots horizontally spread out at a focus rating of 6, and another large cluster at ratings 9. Conversely, the Café column shows very sparse scatter with just two dots at rating 6 and two at ratings 7.  This instantly tells the user what while studying at a café happens less often and yields to unpredictable focus, study focus on home is a frequent baseline where focus clusters strongly around higher scores. 
 
-### Iteration 2: Turning the timeline into a time of day chart
+**What's still missing:** While the jittered plot is fantastic for showing spread and distribution withing a specific location, it hits a hard ceiling. There is no clean way to introduce a third crucial variable, like environmental noise level without adding complex color codes that would make the chart look like a messy, unreadable rainbow. 
 
-<img src="vis/screenshots/chart3_timeline.png" width="700" alt="Before: timeline with one bar per session" />
+### Iteration 2: Introducing a Location-by Noise Heatmap
 
-**The problem.** The timeline was supposed to show whether time of day changes how fast people get distracted, but it didn't really show that. Every session was a thin bar, and with 80 sessions the rows got so thin we had to hide the labels. The part we actually cared about, the time until the first distraction, was usually only a few pixels long, because 50 of the 77 distracted sessions got distracted in the first 10 minutes. Two late sessions also got cut off at midnight. Most of the space went to the grey planned-time bars, which weren't even part of our question. And 20 of those planned times were filled in with the median during cleaning, so a lot of the grey was a guess anyway.
+**The problem.** It has scope locations. The dot plot excels at showing raw data, but it forces the brain to do manual math to estimate average across multiple categories. It cannot easily answer a question like: “How does moderate noise at home compare to moderate noise in the library?”
 
-**What we changed.** We changed what the chart shows. Now each session is a dot. Across the bottom is when it started, and going up is how many minutes until the first distraction. So the thing we care about gets its own axis instead of being a tiny piece of a bar. We also added a red line for the median of each 3-hour block, so you can see the overall trend through all the dots. The first time we added the line, it had a big spike around 4 AM because that block only had one session, so now it only shows blocks with at least 3 sessions. The drag selection is still on this chart, so it still controls the other two.
+**What we changed.** A two-dimensional matrix layout, to solve this, We designed a Location-by-Noise Heatmap (Figure 3).  This structure shifts the visualization into a matrix where the rows represent study locations, and the columns show a progressive scale of noise (from Very Quiet to Very Noisy). The color intensity of each cell directly represents the mathematical average focus rating. 
+
+**Figure 3: Location-by-noise-heatmap**
 
 <img src="vis/screenshots/iter2_time_of_day.png" width="700" alt="After: dots for minutes to first distraction by start time, with a median line" />
 
-**Why.** Now you can see the answer right on the chart. The median line is pretty flat, around 6 to 10 minutes all day, so time of day doesn't seem to change much when the first distraction happens. You can also easily spot the few people who lasted 30 to 45 minutes. We did lose the planned time vs. first distraction comparison, which was the one thing the old timeline was good at. But that wasn't one of our four questions, and a lot of those planned times were guesses, so we decided it was worth it. The 3 sessions with no distractions aren't on this chart because they don't have a time, but they still show up in the location chart.
+**Why.**The macro-trends jump right off on Figure 3. You can clearly track how focus degrades as environments as environments get louder. Look at Home, it starts at a strong average of 6.8 in Very Quiet settings, dips slightly to 6.6 in Quiet and then drops noticeably to 5.5 once noise its Moderate. 
 
 ## Task 7: Current design
 
