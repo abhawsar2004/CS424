@@ -120,15 +120,15 @@ Instead of making changes like the font size, color, repositing legends. I made 
 
 ### Iteration 2: Introducing a Location-by Noise Heatmap
 
-**The problem.** It has scope locations. The dot plot excels at showing raw data, but it forces the brain to do manual math to estimate average across multiple categories. It cannot easily answer a question like: “How does moderate noise at home compare to moderate noise in the library?”
+**The problem:** It has scope locations. The dot plot excels at showing raw data, but it forces the brain to do manual math to estimate average across multiple categories. It cannot easily answer a question like: “How does moderate noise at home compare to moderate noise in the library?”
 
-**What we changed.** A two-dimensional matrix layout, to solve this, We designed a Location-by-Noise Heatmap (Figure 3).  This structure shifts the visualization into a matrix where the rows represent study locations, and the columns show a progressive scale of noise (from Very Quiet to Very Noisy). The color intensity of each cell directly represents the mathematical average focus rating. 
+**What we changed:** A two-dimensional matrix layout, to solve this, We designed a Location-by-Noise Heatmap (Figure 3).  This structure shifts the visualization into a matrix where the rows represent study locations, and the columns show a progressive scale of noise (from Very Quiet to Very Noisy). The color intensity of each cell directly represents the mathematical average focus rating. 
 
 **Figure 3: Location-by-noise-heatmap**
 
-<img src="vis/screenshots/iter2_time_of_day.png" width="700" alt="After: dots for minutes to first distraction by start time, with a median line" />
+<img src="vis/screenshots/average_location_heatmap.png" width="700" alt="After: Shows No Data for no session" />
 
-**Why.**The macro-trends jump right off on Figure 3. You can clearly track how focus degrades as environments as environments get louder. Look at Home, it starts at a strong average of 6.8 in Very Quiet settings, dips slightly to 6.6 in Quiet and then drops noticeably to 5.5 once noise its Moderate. 
+**Why it works:**The macro-trends jump right off on Figure 3. You can clearly track how focus degrades as environments as environments get louder. Look at Home, it starts at a strong average of 6.8 in Very Quiet settings, dips slightly to 6.6 in Quiet and then drops noticeably to 5.5 once noise its Moderate. 
 
 ## Task 7: Current design
 
