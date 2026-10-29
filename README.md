@@ -23,3 +23,14 @@ What's where:
 - `vis/index.html` and `vis/charts.js`: the visualization code.
 - `vis/screenshots/`: screenshots of the charts at different stages.
 - [`Assignment2.md`](Assignment2.md): the Assignment 2 writeup, organized by Tasks 1-7.
+
+## Assignment 3
+
+The writeup is in [`Assignment3.md`](Assignment3.md). Everything else for Assignment 3 is in the `a3/` folder:
+
+- `a3/interactive/`: the interactive version of the chart. Run the same server as above and open http://localhost:8424/a3/interactive/index.html
+- `a3/static/`: the static version.
+- `a3/study/`: the study protocol and the tasks with their expected answers.
+- `a3/results/`: the anonymized study results (`results.csv`) and what each column means.
+- `a3/analysis/`: the code that analyzes the results and makes the charts.
+

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>FocusTrace visualizations</title>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+  <style>
+    body { font-family: sans-serif; margin: 30px; max-width: 900px; background: #fff; color: #222; }
+    h2 { margin-top: 40px; }
+  </style>
+</head>
+<body>
+  <h1>FocusTrace</h1>
+
+  <p>Drag across the top chart to pick a time of day. The other two charts update to match. Double-click the top chart to clear it. Use the dropdown under the charts to filter by noise level.</p>
+  <div id="vis"></div>
+
+  <script src="charts.js"></script>
+</body>
+</html>
