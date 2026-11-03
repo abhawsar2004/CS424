@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>FocusTrace: task type (static)</title>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+  <style>
+    body { font-family: sans-serif; margin: 30px; background: #fff; color: #222; }
+    p { max-width: 900px; }
+  </style>
+</head>
+<body>
+  <h1>FocusTrace: first distraction by task type (static)</h1>
+  <p>Each dot is one study session. The number above each stack is how many sessions had their first distraction in
+    that 5-minute bin, and n next to each task is that task's total number of sessions.</p>
+  <div id="vis"></div>
+  <script src="../shared.js"></script>
+  <script>
+    // Same chart, same data, same layout as the interactive version, just without the window or the share chart.
+    loadData().then((d) => {
+      vegaEmbed("#vis", {
+        $schema: "https://vega.github.io/schema/vega-lite/v5.json",
+        ...stripSpec(d, false),
+        config: { view: { stroke: null } },
+      }, { actions: false });
+    });
+  </script>
+</body>
+</html>
