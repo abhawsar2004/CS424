@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>FocusTrace: task type (interactive)</title>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+  <style>
+    body { font-family: sans-serif; margin: 30px; background: #fff; color: #222; }
+    p { max-width: 900px; }
+  </style>
+</head>
+<body>
+  <h1>FocusTrace: first distraction by task type (interactive)</h1>
+  <p>Each dot is one study session. Drag across the left chart to choose a time window (for example 10 to 30 minutes).
+    Whole 5-minute bins turn dark blue when they are inside the window. The right chart then shows, for each task type,
+    what share of its sessions had their first distraction inside that window. Double-click the left chart to clear.</p>
+  <div id="vis"></div>
+  <script src="../shared.js"></script>
+  <script>
+    loadData().then((d) => {
+      const y = { field: "row", type: "nominal", sort: d.rowOrder, title: null, axis: null };
+
+      const share = {
+        width: 300,
+        height: { step: ROW_STEP },
+        title: { text: "Share of each task's sessions in the window", subtitle: { expr: WINDOW_TEXT }, anchor: "start" },
+        data: { values: d.sessions },
+        transform: [
+          { calculate: `(${IN_WINDOW}) ? 1 : 0`, as: "inwin" },
+          { aggregate: [{ op: "sum", field: "inwin", as: "k" }, { op: "max", field: "n", as: "n" }], groupby: ["row"] },
+          { calculate: "round(100 * datum.k / datum.n)", as: "pct" },
+          { calculate: "datum.pct + '%  (' + datum.k + ' of ' + datum.n + ')'", as: "label" },
+        ],
+        encoding: { y },
+        layer: [
+          {
+            mark: { type: "bar", height: 26, color: "#1f5fa8" },
+            encoding: {
+              x: { field: "pct", type: "quantitative", scale: { domain: [0, 100] }, title: "% of that task's sessions", axis: { values: [0, 25, 50, 75, 100] } },
+              opacity: { condition: { test: "isValid(win) && isValid(win.x)", value: 1 }, value: 0 },
+            },
+          },
+          {
+            mark: { type: "text", align: "left", dx: 5, fontSize: 12, fontWeight: "bold" },
+            encoding: {
+              x: { field: "pct", type: "quantitative" },
+              text: { field: "label" },
+              opacity: { condition: { test: "isValid(win) && isValid(win.x)", value: 1 }, value: 0 },
+            },
+          },
+        ],
+      };
+
+      vegaEmbed("#vis", {
+        $schema: "https://vega.github.io/schema/vega-lite/v5.json",
+        hconcat: [stripSpec(d, true), share],
+        spacing: 30,
+        config: { view: { stroke: null } },
+      }, { actions: false });
+    });
+  </script>
+</body>
+</html>
