@@ -112,14 +112,3 @@ noticeable in `notes` (confusion, trouble dragging, doing math out loud).  parti
 - **Recording:** results go into `a3/results/results.csv` (same columns already in the repo). Optionally ask for
   confidence on a 1-5 scale after each answer.
 
-## Curio (extra credit)
-
-The same dataflow, run on a local clone of Curio:
-
-1. CSV loader node for `cleaned_data.csv`.
-2. Python node that does the filter and bin columns from `shared.js`.
-3. Vega-Lite node for the dot strip with the interval brush.
-4. Curio interaction node that passes the selection to a second Python node, which recomputes the share per task.
-5. Bar chart node for the shares.
-
-Screenshots and a short screen recording of the brush go in `a3/angela/curio/`.
