@@ -12,7 +12,7 @@ with one row per task type. We use the 74 sessions that had a distraction, acros
   of each task's sessions were first distracted inside that window.
 
 ![static](screenshots/static.png)
-![interactive](screenshots/interactive_window.png)
+![interactive](screenshots/interactive.png)
 
 ## How to run on your computer
 
