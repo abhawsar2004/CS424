@@ -1,73 +1,112 @@
-# Candidate: first distraction by task type (Angela)
+# First distraction by task type
 
-**Question (from A1/A2):** Do people get distracted sooner on some kinds of tasks than others?
-This builds on A2 chart 2 (the task type × 10-minute heatmap). A2 found that most sessions break focus early,
-but the heatmap only showed raw counts. Comparing task types with very different group sizes
-(Studying n=33 vs Meeting n=8) means converting counts into shares, which is what this design is built around.
+## Question
 
-## The two versions
+**Do people get distracted sooner on some kinds of tasks than others?**
 
-Both versions load `data/cleaned_data.csv` through the same `shared.js`, so the data, dot layout, colors, and
-labels are identical. We kept the 74 sessions that had a distraction and were one of the five main task types.
-The 3 sessions with no distraction have no time, and "Other" had only 3 sessions, so both were left out.
+Each dot is one study session, placed by how many minutes passed before the first distraction (in 5-minute bins),
+with one row per task type. We use the 74 sessions that had a distraction, across the five main task types.
 
-| | Static (`static/`) | Interactive (`interactive/`) |
-|---|---|---|
-| Main view | Dot strip: one row per task type, one dot per session, 5-minute bins, count above each stack, n per task | Same dot strip |
-| Interaction | None (no tooltips either) | **Brush a time window** on the strip. Whole bins are selected so they're never split, and the window is printed ("Window: 10-29 minutes") |
-| Derived view | — (reader counts dots and divides by n) | **Linked bar chart** recomputes, for each task, the % of its sessions in the window (`40% (4 of 10)`) |
+- **Static version:** the dot chart, with the number of sessions above each stack and the total (n) next to each task.
+- **Interactive version:** the same dot chart. Drag across it to pick a time window, and a bar chart shows what %
+  of each task's sessions were first distracted inside that window.
 
 ![static](screenshots/static.png)
-![interactive with window 10-29](screenshots/interactive_window.png)
+![interactive](screenshots/interactive_window.png)
 
-**Why this interaction is analytical, not decorative:** it's *dynamic aggregation*. Any question of the form
-"which task loses focus more often between X and Y minutes?" needs (sessions in window) ÷ (task total)
-for several tasks. The static chart gives all the inputs (counts per bin, n per task), so every question is
-answerable, but the reader does the adding and dividing. The interactive version does it for any window.
+## How to run on your computer
 
-**Built-in trap that makes the tasks non-trivial:** Studying has by far the most dots, so it usually *looks*
-biggest, but once you divide by n it's often not. The tasks below are chosen so the raw count and the share point to
-different answers.
+1. Clone the repo:
+   ```
+   git clone https://github.com/abhawsar2004/CS424.git
+   cd CS424
+   ```
+2. Start a local server from the `CS424` folder:
+   ```
+   python -m http.server 8000
+   ```
+3. Open in your browser:
+   - Static: http://localhost:8000/a3/angela/static/
+   - Interactive: http://localhost:8000/a3/angela/interactive/
 
-## Evaluation design
+Don't open the HTML files by double-clicking them. They need the local server to load the data.
 
-**Evaluation question:** Does brushing a window with a linked share chart help people compare how often different
-task types get distracted within a time window?
+## Hypothesis
 
-**Hypothesis:** With the interactive version, participants answer faster on both tasks. Accuracy is higher on T2,
-which compares five groups and needs five divisions in the static version. We expect little or no accuracy
-difference on T1, which compares only two.
+People will answer **faster and more accurately with the interactive version**, because it calculates the
+percentages for them. With the static version they have to count dots and divide by n themselves.
 
-### Tasks (2 tasks × 2 variants, multiple choice)
+## Tasks and expected answers
 
-| Task | Variant A | Variant B | Answer A | Answer B |
-|---|---|---|---|---|
-| **T1: compare two categories** | Of each task's sessions, which had a larger share first distracted between **15 and 29 min**: Reading or Studying? | ...between **0 and 4 min**: Writing or Studying? | **Reading** (3/10 = 30% vs 3/33 = 9%) | **Writing** (4/10 = 40% vs 6/33 = 18%) |
-| **T2: find the maximum across categories** | Which task type had the highest share of its sessions first distracted between **10 and 14 min**? | ...between **5 and 19 min**? | **Homework/Assignments** (3/13 = 23%; next Meeting 12%) | **Meeting** (6/8 = 75%; next Studying 64%) |
+Each participant answers 4 multiple-choice questions: two tasks, each in two versions (A and B).
 
-The variants are matched on purpose. In each pair, Studying has the same or a higher raw count but loses on share,
-and the gap to the runner-up is similar (T1: 21 vs 22 points; T2: 11 vs 11 points). Every answer can be
-recomputed with `python a3/angela/check_answers.py`.
-
-### Counterbalancing (within-subject)
-
-Set 1 = T1-A + T2-A, Set 2 = T1-B + T2-B. Assign participants to groups in rotation (P01 → G1, P02 → G2, ...):
-
-| Group | First condition | Static gets | Interactive gets |
+| Task | Variant | Question | Expected answer |
 |---|---|---|---|
-| G1 | Static | Set 1 | Set 2 |
-| G2 | Static | Set 2 | Set 1 |
-| G3 | Interactive | Set 1 | Set 2 |
-| G4 | Interactive | Set 2 | Set 1 |
+| **T1: Compare two task types** | A | Which had a larger share of its sessions first distracted between **15 and 29 minutes**: Reading or Studying? | **Reading** (30% vs 9%) |
+| | B | Which had a larger share of its sessions first distracted between **0 and 4 minutes**: Writing or Studying? | **Writing** (40% vs 18%) |
+| **T2: Find the highest** | A | Which task type had the highest share of its sessions first distracted between **10 and 14 minutes**? | **Homework/Assignments** (23%) |
+| | B | Which task type had the highest share of its sessions first distracted between **5 and 19 minutes**? | **Meeting** (75%) |
 
-With 12 participants that's 3 per group. With 10, it's as even as possible (3/3/2/2), and we'll say so in the report.
+`check_answers.py` recalculates these answers from the data.
 
-### Procedure and scoring
+## Procedure
 
-- **Same setup for everyone:** same laptop, browser, and full-screen window; one participant at a time.
-- **Practice:** before each condition, a 1-minute walkthrough on a practice question that isn't scored
-  ("How many Writing sessions were first distracted in 5-9 min?"). For the interactive version, this is where the
-  participant learns to brush.
+Every participant uses **both** versions: one set of questions on each.
+
+- **Set 1** = T1-A and T2-A
+- **Set 2** = T1-B and T2-B
+
+| Participant | Uses first | Static version gets | Interactive version gets |
+|---|---|---|---|
+| P01, P05, P09 | Static | Set 1 | Set 2 |
+| P02, P06, P10 | Static | Set 2 | Set 1 |
+| P03, P07, P11 | Interactive | Set 1 | Set 2 |
+| P04, P08, P12 | Interactive | Set 2 | Set 1 |
+
+Each session takes about 10 minutes:
+
+1. Read the instructions below to the participant.
+2. First version: one practice question (not scored), then the two timed questions.
+3. Second version: one practice question (not scored), then the two timed questions.
+
+Practice question: "How many Writing sessions were first distracted in 5–9 minutes?"
+
+We run 1–2 pilot participants first and fix anything confusing before the real study.
+
+## Participant instructions
+
+Read this out loud to every participant:
+
+> "You'll answer four multiple-choice questions about study sessions using two versions of a chart. Each dot is
+> one session. Answer as quickly and accurately as you can, and say your answer out loud. There's a 90-second limit
+> per question. This is testing the chart, not you."
+
+Before the interactive version, add:
+
+> "You can drag across the chart to select a time window. The bars on the right update. Double-click to clear."
+
+## Measurements
+
+For every question we record:
+
+- **Accuracy:** correct (1) or incorrect (0).
+- **Time:** seconds from when we finish reading the question until the participant says an answer.
+- **Timeout:** answers longer than 90 seconds count as incorrect, with time recorded as 90.
+
+## Recording results
+
+All results go in `a3/results/results.csv`, one row per question (4 rows per participant):
+
+```
+participant_id,order,condition,task,variant,answer,correct,time_seconds,notes
+P01,static_first,static,T1,A,Reading,1,24.3,
+P01,static_first,static,T2,A,Studying,0,61.0,picked the row with most dots
+P01,static_first,interactive,T1,B,Writing,1,9.8,
+P01,static_first,interactive,T2,B,Meeting,1,14.2,
+```
+
+One teammate reads the questions and times with a stopwatch; another fills in the sheet and writes down anything
+noticeable in `notes` (confusion, trouble dragging, doing math out loud).  participant learns to brush.
 - **Timing:** starts when the question is read aloud and stops when the participant states the answer.
 - **Time limit:** 90 seconds per question. A timeout is scored incorrect with time = 90 s and `notes = timeout`.
 - **Recording:** results go into `a3/results/results.csv` (same columns already in the repo). Optionally ask for
