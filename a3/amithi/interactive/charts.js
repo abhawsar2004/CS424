@@ -1,5 +1,5 @@
 // same cleaned data as a2
-const DATA_URL = "../../data/cleaned_data.csv";
+const DATA_URL = "../../../data/cleaned_data.csv";
 
 function toHour(text) {
   const [h, m] = text.split(":").map(Number);

@@ -1,5 +1,5 @@
 // same cleaned data as the interactive one
-const DATA_URL = "../../data/cleaned_data.csv";
+const DATA_URL = "../../../data/cleaned_data.csv";
 
 function toHour(text) {
   const [h, m] = text.split(":").map(Number);

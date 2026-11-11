@@ -28,9 +28,9 @@ What's where:
 
 The writeup is in [`Assignment3.md`](Assignment3.md). Everything else for Assignment 3 is in the `a3/` folder:
 
-- `a3/interactive/`: the interactive version of the chart. Run the same server as above and open http://localhost:8424/a3/interactive/index.html
-- `a3/static/`: the static version. Open http://localhost:8424/a3/static/index.html
-- `a3/study/`: the study protocol and the tasks with their expected answers.
+- `a3/angela/`: Angela's version (first distraction by task type). Its README explains how to run it and the study tasks.
+- `a3/amithi/`: Amithi's version (focus by location across the day). Its README explains how to run it and the study tasks.
+- `a3/study/`: the shared study protocol and tasks for whichever version we end up using.
 - `a3/results/`: the anonymized study results (`results.csv`) and what each column means.
 - `a3/analysis/`: the code that analyzes the results and makes the charts.
 
