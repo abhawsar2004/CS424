@@ -99,14 +99,14 @@ For every question we record:
 
 ## Recording results
 
-All results go in `a3/results/results.csv`, one row per question (4 rows per participant), with the same columns as Angela's:
+All results go in `a3/results/results.csv`, one row per question, with `study` set to `amithi` so these rows don't get mixed up with Angela's study:
 
 ```
-participant_id,order,condition,task,variant,answer,correct,time_seconds,notes
-P01,static_first,static,T1,A,Afternoon,1,18.2,
-P01,static_first,static,T2,A,Other,0,52.0,added the wrong panels
-P01,static_first,interactive,T1,B,Morning,1,21.5,
-P01,static_first,interactive,T2,B,Other,1,15.4,
+participant_id,study,order,condition,task,variant,answer,correct,time_seconds,notes
+P01,amithi,static_first,static,T1,A,Afternoon,1,18.2,
+P01,amithi,static_first,static,T2,A,Other,0,52.0,added the wrong panels
+P01,amithi,static_first,interactive,T1,B,Morning,1,21.5,
+P01,amithi,static_first,interactive,T2,B,Other,1,15.4,
 ```
 
 One teammate reads the questions and times with a stopwatch, and another fills in the sheet and writes down anything noticeable in `notes` (like confusion, trouble dragging, or counting out loud).
