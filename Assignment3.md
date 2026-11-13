@@ -4,21 +4,21 @@
 
 We each built a static and an interactive version of a different chart from Assignment 2, and we're testing both. Both use `data/cleaned_data.csv` and are built with Vega-Lite. The steps to run them are in each folder's README (`a3/angela/` and `a3/amithi/`).
 
-### Study A (Angela): first distraction by task type
+### Study A (Angela): First distraction by task type
 
 This comes from our A2 heatmap of task type vs. minutes until the first distraction. The problem with that chart was that it only showed raw counts, and our task types have really different sizes (Studying has 33 sessions, Meeting only 8). So a task type with more sessions always looks worse even if it isn't. We changed it into a dot strip with one row per task type and one dot per session, placed in 5-minute bins. We used the 74 sessions that had a distraction and were one of the five main task types.
 
-- **Static:** the dot strip, with the number of sessions above each stack and the total (n) next to each task type. No hover or anything else.
-- **Interactive:** the same dot strip, but you can drag across it to pick a time window. Whole bins get selected so a bin never gets split, and the window is printed above the chart (like "Window: 10-29 minutes"). A linked bar chart then shows what % of each task type's sessions were first distracted in that window.
+- **Static:** The dot strip, with the number of sessions above each stack and the total (n) next to each task type. No hover or anything else.
+- **Interactive:** The same dot strip, but you can drag across it to pick a time window. Whole bins get selected so a bin never gets split, and the window is printed above the chart (like "Window: 10-29 minutes"). A linked bar chart then shows what % of each task type's sessions were first distracted in that window.
 
 We expect this to help because questions like "which task type gets distracted more often between X and Y minutes?" need a percentage for every task type. In the static version you can get there (count the dots in the window and divide by n), but you have to do the math yourself. The interactive version does it for any window you pick.
 
-### Study B (Amithi): focus by location across the day
+### Study B (Amithi): Focus by location across the day
 
 This comes from our A2 linked view. The top chart shows each session by when it started and how many minutes until the first distraction. The bottom chart shows every session as a dot by location and focus rating, stacked so you can count them, and colored by number of distractions (0-3, 4-12, 13+). We used all 80 sessions.
 
-- **Static:** the same top chart, and the location chart split into 4 panels by start time: Morning (5 AM-12 PM), Afternoon (12-5 PM), Evening (5-9 PM) and Night (9 PM-5 AM).
-- **Interactive:** one location chart. Dragging across the top chart picks a time range, and the location chart only shows sessions from that range, with the dots re-stacked so they can still be counted. Double-click clears it. We took out hover, the heatmap and the noise filter from our A2 version so the drag is the only real difference.
+- **Static:** The same top chart, and the location chart split into 4 panels by start time: Morning (5 AM-12 PM), Afternoon (12-5 PM), Evening (5-9 PM) and Night (9 PM-5 AM).
+- **Interactive:** One location chart. Dragging across the top chart picks a time range, and the location chart only shows sessions from that range, with the dots re-stacked so they can still be counted. Double-click clears it. We took out hover, the heatmap and the noise filter from our A2 version so the drag is the only real difference.
 
 We expect this to help when a question covers more than one panel, like "between 12 PM and 9 PM". In the static version you have to find the right dots in two panels and add them up, while the drag groups them in one step. For questions about a single period, we don't think it'll help much, since the panels are already there.
 
