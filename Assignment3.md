@@ -28,10 +28,15 @@ In both studies the static version isn't a weaker copy. It shows all the informa
 
 ## Task 2: Evaluation design
 
-### Questions and hypotheses
+### Questions and Hypotheses
 
-- **Study A:** Does dragging a time window, with a linked chart of percentages, help people compare how often different task types get distracted in that window? **Hypothesis:** people will be faster and more accurate with the interactive version, because it does the dividing for them.
-- **Study B:** Does dragging to pick a time range help people compare locations during part of the day? **Hypothesis:** for T2, where the range covers two panels, people will be faster and more accurate with the interactive version. For T1, which compares two single periods, we don't expect much difference, and the static version might even be a bit faster because the two panels are right next to each other.
+- **Study A:** Does dragging a time window, with a linked chart of percentages, help people compare how often different task types get distracted in that window?  
+  **Hypothesis:** People will be faster and more accurate with the interactive version because it does the dividing for them.
+
+
+- **Study B:** Does dragging to pick a time range help people compare locations during part of the day?<br>
+  **Hypothesis:** For T2, where the range covers two panels, people will be faster and more accurate with the interactive version. For T1, which compares two single periods, we don't expect much difference, and the static version might even be a bit faster because the two panels are right next to each other.
+  
 
 ### Tasks
 
@@ -41,9 +46,9 @@ Each study has 2 tasks with 2 versions each (A and B), so 4 multiple-choice ques
 
 | Task | Variant | Question | Answer |
 |---|---|---|---|
-| T1: compare two task types | A | Which had a larger share of its sessions first distracted between 15 and 29 minutes: Reading or Studying? | Reading (30% vs 9%) |
+| T1: Compare two task types | A | Which had a larger share of its sessions first distracted between 15 and 29 minutes: Reading or Studying? | Reading (30% vs 9%) |
 | | B | Which had a larger share of its sessions first distracted between 0 and 4 minutes: Writing or Studying? | Writing (40% vs 18%) |
-| T2: find the highest | A | Which task type had the highest share of its sessions first distracted between 10 and 14 minutes? | Homework/Assignments (23%) |
+| T2: Find the highest | A | Which task type had the highest share of its sessions first distracted between 10 and 14 minutes? | Homework/Assignments (23%) |
 | | B | Which task type had the highest share of its sessions first distracted between 5 and 19 minutes? | Meeting (75%) |
 
 In each pair, Studying has the same or more dots but loses once you divide by n, so just picking the row with the most dots gives the wrong answer.
@@ -52,9 +57,9 @@ In each pair, Studying has the same or more dots but loses once you divide by n,
 
 | Task | Variant | Question | Answer |
 |---|---|---|---|
-| T1: compare two time periods | A | Did Home have more sessions with 13+ distractions in the morning (5 AM-12 PM) or the afternoon (12-5 PM)? | Afternoon (5 vs 3) |
+| T1: Compare two time periods | A | Did Home have more sessions with 13+ distractions in the morning (5 AM-12 PM) or the afternoon (12-5 PM)? | Afternoon (5 vs 3) |
 | | B | Did Other have more sessions with 13+ distractions in the morning or the afternoon? | Morning (4 vs 2) |
-| T2: find the most over a longer range | A | Between 5 AM and 5 PM, which location had the most sessions rated 5 or lower? | Home (7, next is Other with 4) |
+| T2: Find the most over a longer range | A | Between 5 AM and 5 PM, which location had the most sessions rated 5 or lower? | Home (7, next is Other with 4) |
 | | B | Between 12 PM and 9 PM, which location had the most sessions rated 8 or higher? | Other (5, next is Library with 3) |
 
 The T1 variants have the same gap (2) with opposite answers. The T2 variants both cover two panels in the static version, with gaps of 3 and 2. We also checked that the few sessions starting exactly on a cutoff (12:00 and 9:00 PM) don't change any answer if someone's drag is a little off.
@@ -99,6 +104,6 @@ _To be added._
 
 _To be added._
 
-## Task 5: Reflection and recommendations
+## Task 5: Reflection and Recommendations
 
 _To be added._
