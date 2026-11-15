@@ -100,11 +100,66 @@ Everything goes in `a3/results/results.csv`, one row per question. The columns a
 
 ## Task 3: Conducting the evaluation
 
-_To be added._
-
+- **Excel Workbook:** <a href="./Mariam/CS424_Two_Studies_2_Pilots_10_Participants.xlsx">Download Evaluation Data (.xlsx)<a/?
 ## Task 4: Quantitative analysis
+### 1)Descriptive Summary:
+Each study evaluated 10 participants across 2 tasks per condition (20 completed trials per condition per study, 40 total trials per condition combined. 
 
-_To be added._
+### Angela:
+<img src="./Mariam/Excel%20images/Angela.png" alt="Angela Results" width="600">
+### Amithi:
+<img src="./Mariam/Excel%20images/Amithi.png" alt="Amithi Results" width="600">
+### Overall:
+<img src="./Mariam/Excel%20images/Overall.png" alt="Overall Results" width="450"> 
+
+### Visualization of Evaluation Results:
+### 2)Task Accuracy Comparison (Static vs Interactive)
+<img src="./Mariam/Excel%20images/Accuracy_chart.png" alt="Mean Completion Chart" width="450">
+### Note:The interactive visualization lifted accuracy by +50.0 percentage in Study 1 -Anegla and +10.0 percentage points in Study 2-Amithi, bring both studies to an identical 60.0% interactive accuracy ceiling.
+
+### Mean Completion Time Comparison (Static vs Interactive)
+<img src="./Mariam/Excel%20images/MeanCompletetion_chart.png" alt="Mean Completion Chart" width="450">
+### Note:Interaction did not speed up the task execution, which increased the mean times slightly in both Studies, Study 1 by +1.9s and Study 2 by +0.3s, while study 2 remained roughly 10 to 12 seconds lower than Study 1 across both conditions.
+ 
+ ### 3)Performance Comparison Across Tasks, Conditions and Studies.
+ ### Study 1- Angela: Do people get distracted sooner on some kinds of tasks than others?
+ - **Why Static Visualization failed:**
+  -  **Low accuracy and fast guesses:** Accuracy was 10.0% with an average completion time 13.5s.
+  -  **Question requirements:** Every scored question in Study 1 ( `T1-A`, `T2-A`, `T1-B`, `T2-B`)asked participants to compare the share percentage of distracted sessions within a time window across task types. However, the static chart only displayed the raw dot counts per 5-minute bin and total session counts (n) per task type.
+  -  **Chart Limitations:** Answering accurately required summing bin counts across intervals (such as 15-29 minutes in `T1-A`) and dividing by each task type’s $n$.
+  -  **Root cause of errors:** Instead, of calculating normalized proportions, participants answered rapidly (13.5s) and likely compared raw dots heights directly, resulting in a 90% error rate.
+
+- **Why Interactive Visualization succeeded:**
+  - **Significant accuracy boost:** Accuracy rose to 60.0% with an average completion time of 15.4s.
+  - **Dynamic normalization:** Dragging across the timeline dynamically updated a bar chart displaying the exact percentage of each task type's sessions within that selected window.
+  - **Eliminated mental math:** Spending just an extra 1.9 seconds to brush the target window removed the manual calculation bottleneck and increased accuracy sixfold (from 2/20 to 12/20).
+
+ ### Study 2- Amithi: Do focus and distractions at each place look different depending on the time of day?
+- **Why Static Visualization performed well (Study 2):**
+  - **Stronger baseline accuracy:** Accuracy reached 50.0% with an average completion time of 25.5s.
+  - **Pre-grouped layout:** Unlike in Study 1, the static view in Study 2 pre-grouped the data into four local time-of-day panels (*Morning*, *Afternoon*, *Evening*, and *Night*).
+  - **Direct visual comparison:** For the `T1` question comparing the darkest dots in Morning vs. Afternoon, participants could visually scan two pre-built panels without performing division, yielding 50.0% accuracy.
+
+- **Why Interactive Visualization offered minimal gain (Study 2):**
+  - **Modest improvement:** Accuracy was 60.0% with an average completion time of 25.8s.
+  - **Where brushing helped:** Custom brushing in Study 2 primarily helped on `T2` questions (such as *"Between 5 AM and 5 PM"* or *"Between 12 PM and 9 PM"*), which spanned two static panels and required combining counts across panels and rating thresholds (`<= 5` or `>= 8`).
+  - **Precision overhead:** However, brushing a continuous 24-hour scatter plot introduced its own motor and precision overhead, resulting in virtually identical average speed (+0.3s) and only 2 additional correct answers (+10.0%).
+
+### 4)- **Why Interactive Visualization offered minimal gain (Study 2):**
+  - **Modest improvement:** Accuracy was 60.0% with an average completion time of 25.8s.
+  - **Where brushing helped:** Custom brushing in Study 2 primarily helped on `T2` questions (such as *"Between 5 AM and 5 PM"* or *"Between 12 PM and 9 PM"*), which spanned two static panels and required combining counts across panels and rating thresholds (`<= 5` or `>= 8`).
+  - **Precision overhead:** However, brushing a continuous 24-hour scatter plot introduced its own motor and precision overhead, resulting in virtually identical average speed (+0.3s) and only 2 additional correct answers (+10.0%).
+    
+### 4)Patterns, Limitation, and Interpretation 
+- **Did participants complete tasks faster with interaction?** No. The overall mean time rose by 1.4 seconds 19.3s to 20.9s. Dragging custom time intervals required deliberate cursor precision and verification, trading a small amount of speed for higher analytical accuracy. 
+  
+- **Did accuracy improve?** Yes, the overall accuracy doubled from 30.0% to 60.0%. But the improvement was heavily driven by Study 1 +5-.0, where the interactive view directly computed percentages that were hidden in the static encoding.
+  
+- **Where did interaction make a little difference?** In Study 2, interaction added only +10.0% accuracy and +0.3s in time, demonstrating that when a static visualization already aligns well the task’s grouping structure, interactive filtering provided diminishing returns.
+
+- **Explaining Errors**:
+ - **Small sample size (n =10) per study:** With 20 per condition in each study, each single trail represents 5.0% accuracy. While the +50.0 jump from the 10 additional correct trials in Study 1 reflects a clear functional advantage for proportion-based queries, the +10.0 difference-2 trails in Study 2 are too small to claim superiority over the static panel layout.
+ - **Participant-level variability:** Because only aggregate means and counts are available, individual differences such as one or two participants struggling with the brush and double click mechanic or misinterpreting the “share” vs “count” during the unscored practice round can substantially shift group averages, 
 
 ## Task 5: Reflection and Recommendations
 
