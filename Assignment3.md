@@ -166,4 +166,23 @@ Each study evaluated 10 participants across 2 tasks per condition (20 completed 
 
 ## Task 5: Reflection and Recommendations
 
-_To be added._
+### 1. What Worked, What Surprised Us, and Core Strengths & Weaknesses
+
+#### Strengths: What Worked as Expected
+- **Eliminating the mental math (Study 1):** Allowing participants to brush a time window and automatically view normalized percentages solved the core flaw of the static view, lifting accuracy by **10.0%** to **60.0%**.
+- **Overcoming rigid panel boundaries (Study 2):** In the static version of Study 2, separating data into four fixed panels (*Morning, Afternoon, Evening, Night*) made cross-boundary queries like *"Between 5 AM and 5 PM"* nearly impossible to aggregate accurately. Interactive brushing allowed users to query continuous time spans directly.
+- **High subjective ease of use:** Participants reported that the interactive controls felt easy to operate, confirming that basic brushing and filtering controls were easy to navigate and learn quickly.
+
+#### Weaknesses & Surprises: Where the Design Fell Short
+- **The "Easy-to-Use" vs. 60% Accuracy Paradox:** A major surprise was that even though participants described the interactive visualizations as easy, **40%** of interactive trials still failed in both studies, and mean completion time increased slightly (**+1.9s** in Study 1, **+0.3s** in Study 2). Ease of interaction did not automatically translate to accurate visual interpretation.
+- **Split-attention confusion in Interactive Study 1:** Participants were torn between looking at the dot stacks and the updated share percentage bar chart, unsure which encoding answered the question. This confusion was compounded by the unscored practice task (*"How many Writing sessions…"*), which trained participants to count dots rather than read percentages before the scored "share" questions began.
+- **Loss of semantic landmarks in Interactive Study 2:** While removing the four static panels enabled custom ranges (like 5 AM–5 PM), it also stripped away the explicit definitions of *Morning* and *Afternoon*. When given T1 questions (*"in the morning or afternoon"*), interactive participants had to guess when those periods began and ended, and they struggled with how midnight (`12:00 AM` / `24:00`) was represented on a linear 24-hour axis.
+
+### 2. Concrete Design Improvements
+| Target Issue | Proposed Improvements | How It Addresses the Problem |
+| :--- | :--- | :--- |
+| **Missing Morning/Afternoon definitions and midnight confusion (Study 2)** | Add a subtle background region with labels (*Morning: 5:00 AM to 12:00 PM*) directly onto the 24-hour interactive timeline, alongside one-click preset filter buttons and explicit `12:00 AM (Midnight)` axis markers. | Restores the helpful semantic structure of the static panels inside the interactive view while preserving custom brushing for cross-period queries (e.g., 5 AM – 5 PM). |
+
+### 3. Limitations of Evaluation
+- **Small sample size and participant background:** With only **10 participants** who answered **8 questions** combined across both studies, every single trial shifted accuracy by **5.0%**. Because participants were likely peers or students with prior exposure to data charts, these results reflect directional usability patterns rather than generalizable population benchmarks.
+- **Task difficulty across conditions:** In Study 2, T1 questions aligned naturally with static panels (*"Morning vs. Afternoon"*), whereas T2 questions (*"5 AM – 5 PM"* or *"12 PM – 9 PM"*) heavily penalized the static layout by forcing cross-panel mental addition. Study 1 tasks all required division, putting the static view at a disadvantage.
