@@ -1,0 +1,88 @@
+{
+  "dataflow": {
+    "nodes": [
+      {
+        "id": "8bf84381-c99c-4ebc-b211-8e600bb75b92",
+        "type": "curio.builtin/data-loading",
+        "x": 0,
+        "y": 200,
+        "saveOutputDataset": false,
+        "content": "import pandas as pd\n\nCSV_PATH = \"/Users/angelageorge/Desktop/CS424/data/cleaned_data.csv\"\nTASKS = [\"Studying\", \"Homework/Assignments\", \"Reading\", \"Writing\", \"Meeting\"]\n\ndf = pd.read_csv(CSV_PATH)\n\n# keep sessions that had a distraction, and the five main task types\ndf = df[(df[\"Num_Distractions\"] > 0) & (df[\"Task_Type\"].isin(TASKS))].copy()\n\ndf[\"minutes\"] = df[\"Time_to_First_Distraction\"].astype(float)\ndf[\"bin\"] = (df[\"minutes\"] // 5 * 5).astype(int)   # 5-minute bins\n\n# place dots in a small grid inside each bin (4 per level)\ndf = df.sort_values(\"minutes\", kind=\"stable\")\ni = df.groupby([\"Task_Type\", \"bin\"]).cumcount()\ndf[\"x\"] = df[\"bin\"] + 0.75 + (i % 4) * 1.15\ndf[\"level\"] = i // 4\n\ndf[\"n\"] = df.groupby(\"Task_Type\")[\"Task_Type\"].transform(\"size\")\ndf[\"row\"] = df[\"Task_Type\"] + \" (n=\" + df[\"n\"].astype(str) + \")\"\ndf[\"task_order\"] = df[\"Task_Type\"].map({t: k for k, t in enumerate(TASKS)})\n\ncols = [\"Task_Type\", \"row\", \"task_order\", \"minutes\", \"bin\", \"x\", \"level\", \"n\",\n        \"Focus_Rating\", \"Location\", \"Start_Time\"]\nreturn df[cols].reset_index(drop=True)",
+        "out": "DEFAULT",
+        "in": "DEFAULT",
+        "goal": "Load the cleaned Focus Sessions data",
+        "metadata": {
+          "keywords": []
+        },
+        "title": "Data Loading"
+      },
+      {
+        "id": "046d1500-d908-474f-8a2b-66856346426b",
+        "type": "curio.builtin/vis-vega",
+        "x": 985.6494759727261,
+        "y": 421.77859709972,
+        "width": 1152,
+        "height": 576,
+        "saveOutputDataset": false,
+        "content": "{\n  \"$schema\": \"https://vega.github.io/schema/vega-lite/v6.json\",\n  \"width\": 420,\n  \"height\": {\n    \"step\": 95\n  },\n  \"config\": {\n    \"view\": {\n      \"stroke\": null\n    }\n  },\n  \"title\": {\n    \"text\": \"Focus rating of the same sessions\",\n    \"subtitle\": \"Dark = session's first distraction is inside the window chosen on the left\",\n    \"anchor\": \"start\"\n  },\n  \"transform\": [\n    {\n      \"window\": [\n        {\n          \"op\": \"row_number\",\n          \"as\": \"stack\"\n        }\n      ],\n      \"groupby\": [\n        \"row\",\n        \"Focus_Rating\"\n      ]\n    }\n  ],\n  \"mark\": {\n    \"type\": \"circle\",\n    \"size\": 60,\n    \"stroke\": \"white\",\n    \"strokeWidth\": 0.8\n  },\n  \"encoding\": {\n    \"x\": {\n      \"field\": \"Focus_Rating\",\n      \"type\": \"quantitative\",\n      \"scale\": {\n        \"domain\": [\n          0.5,\n          10.5\n        ]\n      },\n      \"axis\": {\n        \"values\": [\n          1,\n          2,\n          3,\n          4,\n          5,\n          6,\n          7,\n          8,\n          9,\n          10\n        ]\n      },\n      \"title\": \"Self-rated focus (1-10)\"\n    },\n    \"y\": {\n      \"field\": \"row\",\n      \"type\": \"nominal\",\n      \"sort\": {\n        \"field\": \"task_order\",\n        \"op\": \"min\"\n      },\n      \"title\": null,\n      \"axis\": {\n        \"labelFontWeight\": \"bold\"\n      }\n    },\n    \"yOffset\": {\n      \"field\": \"stack\",\n      \"type\": \"quantitative\",\n      \"scale\": {\n        \"domain\": [\n          0,\n          11\n        ]\n      }\n    },\n    \"color\": {\n      \"condition\": {\n        \"test\": \"datum.interacted === '1'\",\n        \"value\": \"#1f5fa8\"\n      },\n      \"value\": \"#c3ccd8\"\n    },\n    \"tooltip\": [\n      {\n        \"field\": \"Task_Type\",\n        \"title\": \"Task\"\n      },\n      {\n        \"field\": \"Focus_Rating\",\n        \"title\": \"Focus\"\n      },\n      {\n        \"field\": \"minutes\",\n        \"title\": \"First distraction (min)\"\n      }\n    ]\n  }\n}",
+        "out": "DEFAULT",
+        "in": "DEFAULT",
+        "goal": "Focus ratings of the selected sessions",
+        "metadata": {
+          "keywords": []
+        },
+        "title": "Vega-LiteFocus Rating of Selected Sessions"
+      },
+      {
+        "id": "43a00483-2a8e-48b4-8d0a-c2b4db702777",
+        "type": "curio.builtin/vis-vega@1",
+        "x": 1021.0792640779722,
+        "y": -204.75419627720126,
+        "width": 977,
+        "height": 572,
+        "saveOutputDataset": false,
+        "content": "{\n  \"$schema\": \"https://vega.github.io/schema/vega-lite/v6.json\",\n  \"spacing\": 30,\n  \"config\": {\n    \"view\": {\n      \"stroke\": null\n    }\n  },\n  \"hconcat\": [\n    {\n      \"width\": 720,\n      \"height\": {\n        \"step\": 76\n      },\n      \"title\": {\n        \"text\": \"When does the first distraction happen, by task type?\",\n        \"subtitle\": \"One dot per session. Drag to pick a time window; double-click to clear.\",\n        \"anchor\": \"start\"\n      },\n      \"layer\": [\n        {\n          \"params\": [\n            {\n              \"name\": \"win\",\n              \"select\": {\n                \"type\": \"interval\",\n                \"encodings\": [\n                  \"x\"\n                ],\n                \"clear\": \"dblclick\"\n              }\n            }\n          ],\n          \"mark\": {\n            \"type\": \"circle\",\n            \"size\": 85,\n            \"opacity\": 1,\n            \"stroke\": \"white\",\n            \"strokeWidth\": 0.8\n          },\n          \"encoding\": {\n            \"x\": {\n              \"field\": \"x\",\n              \"type\": \"quantitative\",\n              \"scale\": {\n                \"domain\": [\n                  0,\n                  50\n                ],\n                \"nice\": false\n              },\n              \"axis\": {\n                \"values\": [\n                  0,\n                  5,\n                  10,\n                  15,\n                  20,\n                  25,\n                  30,\n                  35,\n                  40,\n                  45,\n                  50\n                ],\n                \"grid\": true,\n                \"gridColor\": \"#d0d0d0\",\n                \"title\": \"Minutes until first distraction (5-minute bins)\"\n              }\n            },\n            \"y\": {\n              \"field\": \"row\",\n              \"type\": \"nominal\",\n              \"sort\": {\n                \"field\": \"task_order\",\n                \"op\": \"min\"\n              },\n              \"title\": null,\n              \"axis\": {\n                \"labelFontSize\": 12,\n                \"labelFontWeight\": \"bold\",\n                \"labelPadding\": 8\n              }\n            },\n            \"yOffset\": {\n              \"field\": \"level\",\n              \"type\": \"quantitative\",\n              \"scale\": {\n                \"domain\": [\n                  -1.6,\n                  4.6\n                ]\n              }\n            },\n            \"color\": {\n              \"condition\": {\n                \"test\": \"isValid(win) && isValid(win.x) && datum.bin + 2.5 >= win.x[0] && datum.bin + 2.5 <= win.x[1]\",\n                \"value\": \"#1f5fa8\"\n              },\n              \"value\": \"#c3ccd8\"\n            },\n            \"tooltip\": [\n              {\n                \"field\": \"Task_Type\",\n                \"title\": \"Task\"\n              },\n              {\n                \"field\": \"minutes\",\n                \"title\": \"First distraction (min)\"\n              },\n              {\n                \"field\": \"Focus_Rating\",\n                \"title\": \"Focus (1-10)\"\n              },\n              {\n                \"field\": \"Location\"\n              },\n              {\n                \"field\": \"Start_Time\",\n                \"title\": \"Start time\"\n              }\n            ]\n          }\n        },\n        {\n          \"transform\": [\n            {\n              \"aggregate\": [\n                {\n                  \"op\": \"count\",\n                  \"as\": \"count\"\n                }\n              ],\n              \"groupby\": [\n                \"row\",\n                \"bin\",\n                \"task_order\"\n              ]\n            },\n            {\n              \"calculate\": \"datum.bin + 2.5\",\n              \"as\": \"x\"\n            },\n            {\n              \"calculate\": \"ceil(datum.count / 4)\",\n              \"as\": \"level\"\n            }\n          ],\n          \"mark\": {\n            \"type\": \"text\",\n            \"fontSize\": 10,\n            \"color\": \"#555\",\n            \"dy\": 2\n          },\n          \"encoding\": {\n            \"x\": {\n              \"field\": \"x\",\n              \"type\": \"quantitative\"\n            },\n            \"y\": {\n              \"field\": \"row\",\n              \"type\": \"nominal\",\n              \"sort\": {\n                \"field\": \"task_order\",\n                \"op\": \"min\"\n              },\n              \"title\": null,\n              \"axis\": {\n                \"labelFontSize\": 12,\n                \"labelFontWeight\": \"bold\",\n                \"labelPadding\": 8\n              }\n            },\n            \"yOffset\": {\n              \"field\": \"level\",\n              \"type\": \"quantitative\",\n              \"scale\": {\n                \"domain\": [\n                  -1.6,\n                  4.6\n                ]\n              }\n            },\n            \"text\": {\n              \"field\": \"count\"\n            }\n          }\n        }\n      ]\n    },\n    {\n      \"width\": 300,\n      \"height\": {\n        \"step\": 76\n      },\n      \"title\": {\n        \"text\": \"Share of each task's sessions in the window\",\n        \"subtitle\": {\n          \"expr\": \"isValid(win) && isValid(win.x) && floor((win.x[1] - 2.5) / 5) >= ceil((win.x[0] - 2.5) / 5) ? 'Window: ' + ceil((win.x[0] - 2.5) / 5) * 5 + '-' + (floor((win.x[1] - 2.5) / 5) * 5 + 4) + ' minutes' : 'Drag across the dots to choose a window'\"\n        },\n        \"anchor\": \"start\"\n      },\n      \"transform\": [\n        {\n          \"calculate\": \"(isValid(win) && isValid(win.x) && datum.bin + 2.5 >= win.x[0] && datum.bin + 2.5 <= win.x[1]) ? 1 : 0\",\n          \"as\": \"inwin\"\n        },\n        {\n          \"aggregate\": [\n            {\n              \"op\": \"sum\",\n              \"field\": \"inwin\",\n              \"as\": \"k\"\n            },\n            {\n              \"op\": \"max\",\n              \"field\": \"n\",\n              \"as\": \"n\"\n            }\n          ],\n          \"groupby\": [\n            \"row\",\n            \"task_order\"\n          ]\n        },\n        {\n          \"calculate\": \"round(100 * datum.k / datum.n)\",\n          \"as\": \"pct\"\n        },\n        {\n          \"calculate\": \"datum.pct + '%  (' + datum.k + ' of ' + datum.n + ')'\",\n          \"as\": \"label\"\n        }\n      ],\n      \"encoding\": {\n        \"y\": {\n          \"field\": \"row\",\n          \"type\": \"nominal\",\n          \"sort\": {\n            \"field\": \"task_order\",\n            \"op\": \"min\"\n          },\n          \"axis\": null\n        }\n      },\n      \"layer\": [\n        {\n          \"mark\": {\n            \"type\": \"bar\",\n            \"height\": 26,\n            \"color\": \"#1f5fa8\"\n          },\n          \"encoding\": {\n            \"x\": {\n              \"field\": \"pct\",\n              \"type\": \"quantitative\",\n              \"scale\": {\n                \"domain\": [\n                  0,\n                  100\n                ]\n              },\n              \"title\": \"% of that task's sessions\",\n              \"axis\": {\n                \"values\": [\n                  0,\n                  25,\n                  50,\n                  75,\n                  100\n                ]\n              }\n            },\n            \"opacity\": {\n              \"condition\": {\n                \"test\": \"isValid(win) && isValid(win.x)\",\n                \"value\": 1\n              },\n              \"value\": 0\n            }\n          }\n        },\n        {\n          \"mark\": {\n            \"type\": \"text\",\n            \"align\": \"left\",\n            \"dx\": 5,\n            \"fontSize\": 12,\n            \"fontWeight\": \"bold\"\n          },\n          \"encoding\": {\n            \"x\": {\n              \"field\": \"pct\",\n              \"type\": \"quantitative\"\n            },\n            \"text\": {\n              \"field\": \"label\"\n            },\n            \"opacity\": {\n              \"condition\": {\n                \"test\": \"isValid(win) && isValid(win.x)\",\n                \"value\": 1\n              },\n              \"value\": 0\n            }\n          }\n        }\n      ]\n    }\n  ]\n}",
+        "out": "DEFAULT",
+        "in": "DEFAULT",
+        "goal": "",
+        "metadata": {
+          "keywords": []
+        },
+        "title": "Vega-LiteDistraction Window Explorer"
+      }
+    ],
+    "edges": [
+      {
+        "id": "reactflow__edge-8bf84381-c99c-4ebc-b211-8e600bb75b92out-046d1500-d908-474f-8a2b-66856346426bin",
+        "source": "8bf84381-c99c-4ebc-b211-8e600bb75b92",
+        "target": "046d1500-d908-474f-8a2b-66856346426b",
+        "sourceHandle": "out",
+        "targetHandle": "in"
+      },
+      {
+        "id": "reactflow__edge-8bf84381-c99c-4ebc-b211-8e600bb75b92out-43a00483-2a8e-48b4-8d0a-c2b4db702777in",
+        "source": "8bf84381-c99c-4ebc-b211-8e600bb75b92",
+        "target": "43a00483-2a8e-48b4-8d0a-c2b4db702777",
+        "sourceHandle": "out",
+        "targetHandle": "in"
+      },
+      {
+        "type": "Interaction",
+        "id": "reactflow__edge-43a00483-2a8e-48b4-8d0a-c2b4db702777in/out-046d1500-d908-474f-8a2b-66856346426bin/out",
+        "source": "43a00483-2a8e-48b4-8d0a-c2b4db702777",
+        "target": "046d1500-d908-474f-8a2b-66856346426b",
+        "sourceHandle": "in/out",
+        "targetHandle": "in/out"
+      }
+    ],
+    "name": "FocusTrace: First Distraction by Task Type",
+    "task": "",
+    "timestamp": 1794717660801,
+    "provenance_id": "FocusTrace: First Distraction by Task Type",
+    "packages": [
+      "curio.builtin@1",
+      "curio.vega-lite@1"
+    ],
+    "categories": {}
+  }
+}

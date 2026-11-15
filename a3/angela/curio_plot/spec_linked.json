@@ -1,0 +1,107 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "width": 420,
+  "height": {
+    "step": 95
+  },
+  "config": {
+    "view": {
+      "stroke": null
+    }
+  },
+  "title": {
+    "text": "Focus rating of the same sessions",
+    "subtitle": "Dark = session's first distraction is inside the window chosen on the left",
+    "anchor": "start"
+  },
+  "transform": [
+    {
+      "window": [
+        {
+          "op": "row_number",
+          "as": "stack"
+        }
+      ],
+      "groupby": [
+        "row",
+        "Focus_Rating"
+      ]
+    }
+  ],
+  "mark": {
+    "type": "circle",
+    "size": 60,
+    "stroke": "white",
+    "strokeWidth": 0.8
+  },
+  "encoding": {
+    "x": {
+      "field": "Focus_Rating",
+      "type": "quantitative",
+      "scale": {
+        "domain": [
+          0.5,
+          10.5
+        ]
+      },
+      "axis": {
+        "values": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      },
+      "title": "Self-rated focus (1-10)"
+    },
+    "y": {
+      "field": "row",
+      "type": "nominal",
+      "sort": {
+        "field": "task_order",
+        "op": "min"
+      },
+      "title": null,
+      "axis": {
+        "labelFontWeight": "bold"
+      }
+    },
+    "yOffset": {
+      "field": "stack",
+      "type": "quantitative",
+      "scale": {
+        "domain": [
+          0,
+          11
+        ]
+      }
+    },
+    "color": {
+      "condition": {
+        "test": "datum.interacted === '1'",
+        "value": "#1f5fa8"
+      },
+      "value": "#c3ccd8"
+    },
+    "tooltip": [
+      {
+        "field": "Task_Type",
+        "title": "Task"
+      },
+      {
+        "field": "Focus_Rating",
+        "title": "Focus"
+      },
+      {
+        "field": "minutes",
+        "title": "First distraction (min)"
+      }
+    ]
+  }
+}

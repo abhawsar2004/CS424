@@ -1,0 +1,311 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "spacing": 30,
+  "config": {
+    "view": {
+      "stroke": null
+    }
+  },
+  "hconcat": [
+    {
+      "width": 720,
+      "height": {
+        "step": 76
+      },
+      "title": {
+        "text": "When does the first distraction happen, by task type?",
+        "subtitle": "One dot per session. Drag to pick a time window; double-click to clear.",
+        "anchor": "start"
+      },
+      "layer": [
+        {
+          "params": [
+            {
+              "name": "win",
+              "select": {
+                "type": "interval",
+                "encodings": [
+                  "x"
+                ],
+                "clear": "dblclick"
+              }
+            }
+          ],
+          "mark": {
+            "type": "circle",
+            "size": 85,
+            "opacity": 1,
+            "stroke": "white",
+            "strokeWidth": 0.8
+          },
+          "encoding": {
+            "x": {
+              "field": "x",
+              "type": "quantitative",
+              "scale": {
+                "domain": [
+                  0,
+                  50
+                ],
+                "nice": false
+              },
+              "axis": {
+                "values": [
+                  0,
+                  5,
+                  10,
+                  15,
+                  20,
+                  25,
+                  30,
+                  35,
+                  40,
+                  45,
+                  50
+                ],
+                "grid": true,
+                "gridColor": "#d0d0d0",
+                "title": "Minutes until first distraction (5-minute bins)"
+              }
+            },
+            "y": {
+              "field": "row",
+              "type": "nominal",
+              "sort": {
+                "field": "task_order",
+                "op": "min"
+              },
+              "title": null,
+              "axis": {
+                "labelFontSize": 12,
+                "labelFontWeight": "bold",
+                "labelPadding": 8
+              }
+            },
+            "yOffset": {
+              "field": "level",
+              "type": "quantitative",
+              "scale": {
+                "domain": [
+                  -1.6,
+                  4.6
+                ]
+              }
+            },
+            "color": {
+              "condition": {
+                "test": "isValid(win) && isValid(win.x) && datum.bin + 2.5 >= win.x[0] && datum.bin + 2.5 <= win.x[1]",
+                "value": "#1f5fa8"
+              },
+              "value": "#c3ccd8"
+            },
+            "tooltip": [
+              {
+                "field": "Task_Type",
+                "title": "Task"
+              },
+              {
+                "field": "minutes",
+                "title": "First distraction (min)"
+              },
+              {
+                "field": "Focus_Rating",
+                "title": "Focus (1-10)"
+              },
+              {
+                "field": "Location"
+              },
+              {
+                "field": "Start_Time",
+                "title": "Start time"
+              }
+            ]
+          }
+        },
+        {
+          "transform": [
+            {
+              "aggregate": [
+                {
+                  "op": "count",
+                  "as": "count"
+                }
+              ],
+              "groupby": [
+                "row",
+                "bin",
+                "task_order"
+              ]
+            },
+            {
+              "calculate": "datum.bin + 2.5",
+              "as": "x"
+            },
+            {
+              "calculate": "ceil(datum.count / 4)",
+              "as": "level"
+            }
+          ],
+          "mark": {
+            "type": "text",
+            "fontSize": 10,
+            "color": "#555",
+            "dy": 2
+          },
+          "encoding": {
+            "x": {
+              "field": "x",
+              "type": "quantitative"
+            },
+            "y": {
+              "field": "row",
+              "type": "nominal",
+              "sort": {
+                "field": "task_order",
+                "op": "min"
+              },
+              "title": null,
+              "axis": {
+                "labelFontSize": 12,
+                "labelFontWeight": "bold",
+                "labelPadding": 8
+              }
+            },
+            "yOffset": {
+              "field": "level",
+              "type": "quantitative",
+              "scale": {
+                "domain": [
+                  -1.6,
+                  4.6
+                ]
+              }
+            },
+            "text": {
+              "field": "count"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "width": 300,
+      "height": {
+        "step": 76
+      },
+      "title": {
+        "text": "Share of each task's sessions in the window",
+        "subtitle": {
+          "expr": "isValid(win) && isValid(win.x) && floor((win.x[1] - 2.5) / 5) >= ceil((win.x[0] - 2.5) / 5) ? 'Window: ' + ceil((win.x[0] - 2.5) / 5) * 5 + '-' + (floor((win.x[1] - 2.5) / 5) * 5 + 4) + ' minutes' : 'Drag across the dots to choose a window'"
+        },
+        "anchor": "start"
+      },
+      "transform": [
+        {
+          "calculate": "(isValid(win) && isValid(win.x) && datum.bin + 2.5 >= win.x[0] && datum.bin + 2.5 <= win.x[1]) ? 1 : 0",
+          "as": "inwin"
+        },
+        {
+          "aggregate": [
+            {
+              "op": "sum",
+              "field": "inwin",
+              "as": "k"
+            },
+            {
+              "op": "max",
+              "field": "n",
+              "as": "n"
+            }
+          ],
+          "groupby": [
+            "row",
+            "task_order"
+          ]
+        },
+        {
+          "calculate": "round(100 * datum.k / datum.n)",
+          "as": "pct"
+        },
+        {
+          "calculate": "datum.pct + '%  (' + datum.k + ' of ' + datum.n + ')'",
+          "as": "label"
+        }
+      ],
+      "encoding": {
+        "y": {
+          "field": "row",
+          "type": "nominal",
+          "sort": {
+            "field": "task_order",
+            "op": "min"
+          },
+          "axis": null
+        }
+      },
+      "layer": [
+        {
+          "mark": {
+            "type": "bar",
+            "height": 26,
+            "color": "#1f5fa8"
+          },
+          "encoding": {
+            "x": {
+              "field": "pct",
+              "type": "quantitative",
+              "scale": {
+                "domain": [
+                  0,
+                  100
+                ]
+              },
+              "title": "% of that task's sessions",
+              "axis": {
+                "values": [
+                  0,
+                  25,
+                  50,
+                  75,
+                  100
+                ]
+              }
+            },
+            "opacity": {
+              "condition": {
+                "test": "isValid(win) && isValid(win.x)",
+                "value": 1
+              },
+              "value": 0
+            }
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "dx": 5,
+            "fontSize": 12,
+            "fontWeight": "bold"
+          },
+          "encoding": {
+            "x": {
+              "field": "pct",
+              "type": "quantitative"
+            },
+            "text": {
+              "field": "label"
+            },
+            "opacity": {
+              "condition": {
+                "test": "isValid(win) && isValid(win.x)",
+                "value": 1
+              },
+              "value": 0
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
