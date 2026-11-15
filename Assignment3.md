@@ -107,19 +107,21 @@ Everything goes in `a3/results/results.csv`, one row per question. The columns a
 Each study evaluated 10 participants across 2 tasks per condition (20 completed trials per condition per study, 40 total trials per condition combined. 
 
 ### Angela:
-<img src="./Mariam/Excel%20images/Angela.png" alt="Angela Results" width="600">
+![Angela Quantitative Analysis](./a3/Mariam/Excel%20images/Angela.png)
+
 ### Amithi:
-<img src="./Mariam/Excel%20images/Amithi.png" alt="Amithi Results" width="600">
+![Amithi Quantitative Analysis](./a3/Mariam/Excel%20images/Amithi.png)
+
 ### Overall:
-<img src="./Mariam/Excel%20images/Overall.png" alt="Overall Results" width="450"> 
+![Overall Quantitative Analysis](./a3/Mariam/Excel%20images/Overall.png)
 
 ### Visualization of Evaluation Results:
 ### 2)Task Accuracy Comparison (Static vs Interactive)
-<img src="./Mariam/Excel%20images/Accuracy_chart.png" alt="Mean Completion Chart" width="450">
+![Accuracy Chart](./a3/Mariam/Excel%20images/Accuracy_chart.png)
 ### Note:The interactive visualization lifted accuracy by +50.0 percentage in Study 1 -Anegla and +10.0 percentage points in Study 2-Amithi, bring both studies to an identical 60.0% interactive accuracy ceiling.
 
 ### Mean Completion Time Comparison (Static vs Interactive)
-<img src="./Mariam/Excel%20images/MeanCompletetion_chart.png" alt="Mean Completion Chart" width="450">
+![Mean Completion Time Chart](./a3/Mariam/Excel%20images/MeanCompletetion_chart.png) 
 ### Note:Interaction did not speed up the task execution, which increased the mean times slightly in both Studies, Study 1 by +1.9s and Study 2 by +0.3s, while study 2 remained roughly 10 to 12 seconds lower than Study 1 across both conditions.
  
  ### 3)Performance Comparison Across Tasks, Conditions and Studies.
