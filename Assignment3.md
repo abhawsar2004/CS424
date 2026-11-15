@@ -100,7 +100,8 @@ Everything goes in `a3/results/results.csv`, one row per question. The columns a
 
 ## Task 3: Conducting the evaluation
 
-- **Excel Workbook:** <a href="./Mariam/CS424_Two_Studies_2_Pilots_10_Participants.xlsx">Download Evaluation Data (.xlsx)<a/?
+- [Evaluation Results & Data (Excel)](./a3/Mariam/CS424_Two_Studies_2_Pilots_10_Participants.xlsx)
+  
 ## Task 4: Quantitative analysis
 ### 1)Descriptive Summary:
 Each study evaluated 10 participants across 2 tasks per condition (20 completed trials per condition per study, 40 total trials per condition combined. 
