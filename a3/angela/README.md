@@ -1,4 +1,4 @@
-# First distraction by task type
+# First Distraction by Task Type
 
 ## Question
 
@@ -12,7 +12,7 @@ with one row per task type. We use the 74 sessions that had a distraction, acros
   of each task's sessions were first distracted inside that window.
 
 ![static](screenshots/static.png)
-![interactive](screenshots/interactive.png)
+![interactive](screenshots/interactive.png)\
 
 ## How to run on your computer
 
@@ -111,4 +111,50 @@ noticeable in `notes` (confusion, trouble dragging, doing math out loud).  parti
 - **Time limit:** 90 seconds per question. A timeout is scored incorrect with time = 90 s and `notes = timeout`.
 - **Recording:** results go into `a3/results/results.csv` (same columns already in the repo). Optionally ask for
   confidence on a 1-5 scale after each answer.
+
+## Curio Prototype
+
+Curio was cloned from https://github.com/urban-toolkit/curio and run locally (installation from git).
+
+## Analytical question
+
+Do people get distracted sooner on some kinds of tasks than others? Specifically: within a chosen time window,
+which task type has the largest share of its sessions first distracted, and were those sessions rated lower on focus?
+
+## Dataflow
+
+Data Loading → Distraction Window Explorer (Vega-Lite)
+             → Focus Rating of Selected Sessions (Vega-Lite)
+The two charts are connected by an interaction edge.
+
+## Data Transformations (Data Loading Node)
+
+1. Load `data/cleaned_data.csv`.
+2. Keep the 74 sessions that had a distraction and belong to the five main task types (Studying, Homework/Assignments,
+   Reading, Writing, Meeting).
+3. Put each session's time to first distraction into 5-minute bins (0–4, 5–9, ...).
+4. Compute each task type's total number of sessions (n), used to turn counts into percentages.
+5. Give each session a position inside its bin so every dot is visible and countable.
+
+## How the interaction works
+
+- **Distraction Window Explorer:** Drag across the dot chart to choose a time window (for example 10–29 minutes).
+  The bar chart next to it recalculates, for each task type, the % of its sessions first distracted in that window,
+  for example "Reading: 40% (4 of 10)". Double-click to clear.
+- **Focus Rating of Selected Sessions:** The interaction edge sends the selection to this chart, and the same sessions
+  turn dark on a focus-rating scale. This shows whether sessions distracted in that window were rated lower on focus.
+
+This supports the analytical task directly: comparing task types fairly even though they have very different numbers of
+sessions (Studying has 33, Meeting has 8).
+
+## How to reproduce
+
+1. Clone Curio from GitHub and start it with `python curio.py start`.
+2. Open http://localhost:8080, create a new dataflow, and use **File → Load dataflow** to open
+   `focustrace_task_type.json`.
+3. In the Data Loading node, set `CSV_PATH` to the location of `data/cleaned_data.csv`.
+4. Click **Run All**, then drag across the dot chart.
+
+
+![curio](screenshots/curio.png)
 
