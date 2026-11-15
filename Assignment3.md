@@ -13,6 +13,8 @@ This comes from our A2 heatmap of task type vs. minutes until the first distract
 
 We expect this to help because questions like "which task type gets distracted more often between X and Y minutes?" need a percentage for every task type. In the static version you can get there (count the dots in the window and divide by n), but you have to do the math yourself. The interactive version does it for any window you pick.
 
+**The Curio version of this visualization is in [`a3/angela/curio_plot/`](a3/angela/curio_plot/).**
+
 ### Study B (Amithi): Focus by location across the day
 
 This comes from our A2 linked view. The top chart shows each session by when it started and how many minutes until the first distraction. The bottom chart shows every session as a dot by location and focus rating, stacked so you can count them, and colored by number of distractions (0-3, 4-12, 13+). We used all 80 sessions.
