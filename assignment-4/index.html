@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f7fb">
+  <title>FocusTrace | Session explorer</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="dashboard.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="shell topbar-inner">
+      <div class="brand"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>FocusTrace</div>
+      <span id="dataset-size" class="data-label"></span>
+    </div>
+  </header>
+
+  <main class="shell" aria-labelledby="page-title">
+    <div class="intro">
+      <div>
+        <h1 id="page-title">When and where do we focus?</h1>
+        <p>Compare focus across two times of day.</p>
+      </div>
+      <label class="filter">Noise level
+        <select id="noise" disabled>
+          <option value="">All noise levels</option>
+        </select>
+      </label>
+    </div>
+
+    <p id="load-status" class="notice" role="status">Loading session data…</p>
+
+    <div id="dashboard" hidden>
+      <section class="card timeline-card" aria-labelledby="timeline-title">
+        <div class="section-header">
+          <div>
+            <h2 id="timeline-title">Time to first distraction</h2>
+            <p id="brush-help">Drag to pick a range or type exact times below.</p>
+          </div>
+          <div class="timeline-controls">
+            <fieldset class="range-toggle">
+              <legend class="sr-only">Range to set by dragging</legend>
+              <label><input type="radio" name="brush-range" value="a" checked><span>Set A</span></label>
+              <label><input type="radio" name="brush-range" value="b"><span>Set B</span></label>
+            </fieldset>
+            <button id="reset" type="button">Reset</button>
+          </div>
+        </div>
+        <div class="timeline-unit">Minutes</div>
+        <div class="timeline-chart">
+          <div id="timeline-y" class="timeline-y" aria-hidden="true"></div>
+          <div id="timeline-plot" class="timeline-plot" aria-describedby="brush-help">
+            <div id="timeline-grid" class="timeline-layer" aria-hidden="true"></div>
+            <div id="timeline-windows" class="timeline-layer" aria-hidden="true"></div>
+            <div id="timeline-points" class="timeline-layer" aria-hidden="true"></div>
+            <p id="timeline-empty" class="empty" hidden>No sessions with distractions match this noise level.</p>
+          </div>
+          <div class="timeline-x" aria-hidden="true"><span>12 AM</span><span>6 AM</span><span>Noon</span><span>6 PM</span><span>12 AM</span></div>
+        </div>
+        <div class="timeline-footer">
+          <p id="timeline-count"></p>
+          <div class="focus-key"><span>Focus rating</span><span>1</span><span class="focus-scale" aria-hidden="true"></span><span>10</span></div>
+        </div>
+      </section>
+
+      <section class="comparison" aria-labelledby="comparison-title">
+        <div class="section-header comparison-header">
+          <div>
+            <h2 id="comparison-title">Focus by location</h2>
+            <p>Each dot is one session. The number next to each place is the total.</p>
+          </div>
+          <ul class="legend" aria-label="Number of distractions">
+            <li>Distractions</li>
+            <li><span class="swatch low"></span>0–3</li>
+            <li><span class="swatch middle"></span>4–12</li>
+            <li><span class="swatch high"></span>13+</li>
+          </ul>
+        </div>
+        <p id="comparison-status" class="sr-only" role="status"></p>
+        <div id="range-cards" class="range-cards"></div>
+      </section>
+    </div>
+  </main>
+
+  <template id="range-template">
+    <article class="card range-card">
+      <div class="range-header">
+        <div class="range-identity"><span class="range-letter" aria-hidden="true"></span><h3></h3></div>
+        <div class="time-controls">
+          <label>Start<input class="range-start" type="time" required></label>
+          <label>End<input class="range-end" type="time" required></label>
+        </div>
+      </div>
+      <div class="range-summary"><span class="range-count"></span><span class="range-mean"></span></div>
+      <div class="location-chart">
+        <div class="location-rows"></div>
+        <div class="rating-axis" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span></div>
+        <div class="axis-title">Focus rating</div>
+      </div>
+      <p class="range-empty empty" hidden>No sessions match this range and noise level.</p>
+    </article>
+  </template>
+</body>
+</html>
